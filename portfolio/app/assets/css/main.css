@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255, 255, 255;
+    --surface: 250, 249, 246;
+    --accent: 30, 58, 138;
+    --text-color: 15, 23, 42;
+    --border-color: 15, 23, 42;
+    --text-color-rgb: 15, 23, 42;
+  }
+
+  html.dark {
+    --background: 10, 10, 15;
+    --surface: 18, 18, 26;
+    --accent: 96, 165, 250;
+    --text-color: 248, 250, 252;
+    --border-color: 248, 250, 252;
+    --text-color-rgb: 248, 250, 252;
+  }
+
+  body {
+    @apply bg-background text-textColor antialiased selection:bg-textColor/30 selection:text-background overflow-x-hidden transition-colors duration-300;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight text-textColor transition-colors duration-300;
+    font-family: 'Bodoni Moda', serif;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-surface/90 backdrop-blur-md border border-borderColor/10 shadow-sm transition-colors duration-300;
+  }
+  
+  .glass-panel {
+    @apply bg-surface/90 backdrop-blur-xl border border-borderColor/10 shadow-xl transition-colors duration-300;
+  }
+
+  .text-gradient {
+    @apply text-textColor;
+  }
+
+  .text-gradient-accent {
+    @apply text-accent;
+  }
+}
+
+/* Lenis Smooth Scroll Recommended Styles */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Page Transitions */
+.page-enter-active,
+.page-leave-active {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
