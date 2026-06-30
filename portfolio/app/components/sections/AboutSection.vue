@@ -83,7 +83,7 @@
           </div>
 
           <!-- 4 Vertical Cards Grid -->
-          <div class="grid grid-cols-2 gap-3 mb-6">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
             <!-- Frontend -->
             <div class="bg-[#11131a] border border-white/5 rounded-2xl p-4 flex flex-col items-center text-center">
               <div class="w-10 h-10 rounded-full border border-[#D4AF37]/30 flex items-center justify-center mb-3">

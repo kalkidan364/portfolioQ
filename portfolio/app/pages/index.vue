@@ -13,26 +13,7 @@
       <div class="absolute inset-0 bg-black/10 z-0"></div>
 
       <!-- Header / Navbar -->
-      <header class="relative z-20 w-full px-6 md:px-12 py-4 flex items-center justify-between opacity-0 hero-anim">
-        <div class="text-xl font-bold tracking-[0.2em] text-[#D4AF37] uppercase">
-          Kalkidan.
-        </div>
-        
-        <nav class="hidden md:flex items-center gap-10 text-sm font-medium text-gray-300">
-          <a href="#hero" class="relative text-[#D4AF37] hover:text-[#D4AF37] transition-colors">
-            Home
-            <span class="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 bg-[#D4AF37] rounded-full"></span>
-          </a>
-          <a href="#about" class="hover:text-white transition-colors">About</a>
-          <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-          <a href="#skills" class="hover:text-white transition-colors">Skills</a>
-          <a href="#contact" class="hover:text-white transition-colors">Contact</a>
-        </nav>
-        
-        <a href="#contact" class="hidden md:inline-flex items-center justify-center px-6 py-2 border border-[#D4AF37]/50 text-white text-sm font-medium rounded-full hover:bg-[#D4AF37]/10 transition-all">
-          Let's Talk <span class="ml-2">→</span>
-        </a>
-      </header>
+      <AppHeader class="opacity-0 hero-anim" />
 
       <!-- Hero Content -->
       <div class="relative z-10 flex-1 flex flex-col justify-center container mx-auto px-6 md:px-12 w-full pb-6">
@@ -159,6 +140,7 @@
 import { onMounted } from 'vue'
 import gsap from 'gsap'
 // Keeping imports even if unused in hero, as they are used in sections below
+import AppHeader from '~/components/AppHeader.vue'
 import ThreeScene from '~/components/ThreeScene.vue'
 import MagneticButton from '~/components/MagneticButton.vue'
 import AboutSection from '~/components/sections/AboutSection.vue'

@@ -11,7 +11,7 @@
               <span class="w-1 h-1 rounded-full bg-[#D4AF37]"></span>
               GET IN TOUCH
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+            <h2 class="text-3xl md:text-4xl font-bold leading-tight text-white">
               Let's Build<br />
               Something <span class="text-[#D4AF37]">Amazing</span>
             </h2>
@@ -23,7 +23,7 @@
           </div>
           
           <!-- Rocket Card -->
-          <div class="bg-[#1a1a1a] border border-[#D4AF37]/20 rounded-xl p-4 flex items-start gap-4 hover:border-[#D4AF37]/40 transition-colors w-max">
+          <div class="bg-[#1a1a1a] border border-[#D4AF37]/20 rounded-xl p-4 flex items-start gap-4 hover:border-[#D4AF37]/40 transition-colors max-w-full inline-flex">
             <div class="w-10 h-10 rounded-full border border-[#D4AF37]/30 flex items-center justify-center bg-white/5 shrink-0">
               <svg class="w-4 h-4 text-[#D4AF37] transform -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
             </div>
@@ -118,7 +118,7 @@
               <span class="w-1 h-1 rounded-full bg-[#D4AF37]"></span>
               LET'S CONNECT
             </div>
-            <h2 class="text-3xl md:text-4xl font-bold leading-tight">
+            <h2 class="text-3xl md:text-4xl font-bold leading-tight text-white">
               Find me on<br />
               other <span class="text-[#D4AF37]">platforms</span>
             </h2>
