@@ -39,17 +39,14 @@
           <!-- Featured Content -->
           <div class="flex-1 relative overflow-hidden">
             <!-- Large background dashboard image -->
-            <div class="absolute right-[-8%] top-0 bottom-0 w-[68%] z-0 overflow-hidden">
+            <div class="absolute inset-0 z-0 overflow-hidden">
               <img 
                 :src="currentProject.image" 
                 :alt="currentProject.title"
-                class="w-full h-full object-cover object-left-top opacity-70"
-                style="transform: perspective(900px) rotateY(-12deg) rotateX(3deg) scale(1.05);"
+                class="w-full h-full object-cover object-center"
               />
-              <!-- Left fade -->
-              <div class="absolute inset-0 bg-gradient-to-r from-[#161616] via-[#161616]/70 to-transparent"></div>
-              <!-- Top fade -->
-              <div class="absolute inset-0 bg-gradient-to-b from-[#161616]/30 via-transparent to-[#161616]/80"></div>
+              <!-- Overlay for text readability -->
+              <div class="absolute inset-0 bg-gradient-to-r from-[#111]/90 via-[#111]/60 to-transparent"></div>
             </div>
 
             <!-- Text Content -->
@@ -207,7 +204,7 @@ const projects = ref([
     title: 'Work.1',
     subtitle: 'Online Exam System',
     description: 'A comprehensive online exam system for managing assessments, tracking student progress, and grading automatically.',
-    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=80',
+    image: '/images/online-exam.png',
     stats: [
       { value: '500+', label: 'Exams' },
       { value: '10K+', label: 'Students' },

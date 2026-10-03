@@ -479,7 +479,7 @@ const projectsDB: Record<string, any> = {
   'work-1': {
     title: 'Work.1',
     description: 'A powerful full-stack online exam system designed to help educational institutions manage assessments, track student progress, optimize workflows, and grade automatically.',
-    heroImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1200&q=80',
+    heroImage: '/images/online-exam.png',
     meta: { category: 'Online Exam System', year: '2024', status: 'Completed', role: 'Full Stack Developer' },
     stats: [
       { value: '500+', label: 'Exams' },
@@ -497,7 +497,7 @@ const projectsDB: Record<string, any> = {
       { label: 'Status', value: 'Completed' },
     ],
     gallery: [
-      { title: 'Admin Dashboard', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80' },
+      { title: 'Admin Dashboard', res: '1920 x 1080', img: '/images/online-exam.png' },
       { title: 'Task Board', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&q=80' },
       { title: 'Analytics View', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
       { title: 'Team Management', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80' },
