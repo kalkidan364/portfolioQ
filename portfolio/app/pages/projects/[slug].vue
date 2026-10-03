@@ -523,7 +523,6 @@ const projectsDB: Record<string, any> = {
     techNodes: [
       { icon: 'V', title: 'Frontend', desc: 'Vue.js 3 + Tailwind CSS', color: '#4FC08D' },
       { icon: 'L', title: 'Backend', desc: 'Laravel 10 + PHP 8', color: '#FF2D20' },
-      { icon: 'N', title: 'API', desc: 'Node.js + Express', color: '#339933' },
       { icon: 'My', title: 'Database', desc: 'MySQL + Redis', color: '#4479A1' },
       { icon: 'D', title: 'Deployment', desc: 'Docker + Nginx', color: '#2496ED' },
     ],
@@ -556,9 +555,9 @@ const projectsDB: Record<string, any> = {
   },
 
   'crypto-currency': {
-    title: 'Crypto Currency Trade Platform',
+    title: 'Onchaintrade',
     description: 'A modern cryptocurrency trading platform with real-time market data, advanced charts, secure authentication and wallet management.',
-    heroImage: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=1200&q=80',
+    heroImage: '/images/onchaintrade.png',
     meta: { category: 'Web Application', year: '2025', status: 'Completed', role: 'Full Stack Developer' },
     stats: [
       { value: '12K+', label: 'Users' },
@@ -576,7 +575,7 @@ const projectsDB: Record<string, any> = {
       { label: 'Status', value: 'Completed' },
     ],
     gallery: [
-      { title: 'Desktop Preview', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
+      { title: 'Desktop Preview', res: '1920 x 1080', img: '/images/onchaintrade.png' },
       { title: 'Dashboard', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
       { title: 'Tablet Preview', res: '768 x 1024', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
       { title: 'Admin Panel', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
@@ -600,11 +599,10 @@ const projectsDB: Record<string, any> = {
       { title: 'Admin Dashboard', desc: 'Comprehensive back-office tools for user management, KYC verification, fee configuration, and system monitoring.', stats: [{ val: 'KYC', label: 'System' }, { val: 'RBAC', label: 'Roles' }, { val: 'Audit', label: 'Logs' }] },
     ],
     techNodes: [
-      { icon: 'V', title: 'Frontend', desc: 'Vue.js 3 + Tailwind CSS', color: '#4FC08D' },
-      { icon: 'A', title: 'API Gateway', desc: 'RESTful API + Express.js', color: '#8b5cf6' },
-      { icon: 'B', title: 'Backend', desc: 'Node.js + TypeScript', color: '#339933' },
-      { icon: 'D', title: 'Database', desc: 'MongoDB + Redis', color: '#47A248' },
-      { icon: 'aws', title: 'Deployment', desc: 'Docker + AWS', color: '#FF9900' },
+      { icon: 'V', title: 'Frontend', desc: 'Vue.js + Tailwind CSS', color: '#4FC08D' },
+      { icon: 'L', title: 'Backend', desc: 'Laravel', color: '#FF2D20' },
+      { icon: 'My', title: 'Database', desc: 'MySQL', color: '#4479A1' },
+      { icon: 'Y', title: 'Deployment', desc: 'Yegara Host', color: '#FFD700' },
     ],
     challenges: [
       'Real-time data synchronization',
@@ -637,7 +635,7 @@ const projectsDB: Record<string, any> = {
   'apollo-logistics': {
     title: 'Apollo Logistics Website',
     description: 'A professional logistics and HR consultancy website built for Apollo Logistics — unifying customs clearing, freight operations, and human capital solutions for Ethiopian enterprise clients.',
-    heroImage: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=1200&q=80',
+    heroImage: '/images/apollo.jpg',
     meta: { category: 'Website', year: '2024', status: 'Completed', role: 'Full Stack Developer' },
     stats: [
       { value: '5K+', label: 'Visitors/Mo' },
@@ -655,7 +653,7 @@ const projectsDB: Record<string, any> = {
       { label: 'Status', value: 'Completed' },
     ],
     gallery: [
-      { title: 'Homepage Hero', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1494412574643-ff11b0a5eb19?w=600&q=80' },
+      { title: 'Homepage Hero', res: '1920 x 1080', img: '/images/apollo.jpg' },
       { title: 'Services Page', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?w=600&q=80' },
       { title: 'About Us', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80' },
       { title: 'Job Board', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80' },
@@ -709,6 +707,68 @@ const projectsDB: Record<string, any> = {
       { val: '99.9%', label: 'Uptime' },
     ],
     prevProject: { slug: 'crypto-currency', title: 'Crypto Currency' },
+    nextProject: { slug: 'onchaintrade2', title: 'Onchaintrade2' },
+  },
+
+  'onchaintrade2': {
+    title: 'Onchaintrade2',
+    description: 'The most advanced cryptocurrency terminal with institutional-grade execution and unmatched analytics.',
+    heroImage: '/images/onchaintrade2.png',
+    meta: { category: 'Web Application', year: '2025', status: 'Completed', role: 'Full Stack Developer' },
+    stats: [
+      { value: '$2.8T', label: 'Volume' },
+      { value: '14M+', label: 'Traders' },
+      { value: '100%', label: 'Secure' },
+      { value: '99.9%', label: 'Uptime' }
+    ],
+    quickInfo: [
+      { label: 'Duration', value: '3 Months' },
+      { label: 'Project Type', value: 'Web Application' },
+      { label: 'Client', value: 'Personal Project' },
+      { label: 'Team Size', value: '1 Developer' },
+      { label: 'Platform', value: 'Web' },
+      { label: 'Responsive', value: '100%' },
+      { label: 'Status', value: 'Completed' },
+    ],
+    gallery: [
+      { title: 'Desktop Preview', res: '1920 x 1080', img: '/images/onchaintrade2.png' },
+      { title: 'Dashboard', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
+      { title: 'Tablet Preview', res: '768 x 1024', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
+      { title: 'Admin Panel', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
+      { title: 'Mobile Preview', res: '375 x 812', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
+    ],
+    story: [
+      { title: 'Research', desc: 'Market research and user needs analysis' },
+      { title: 'Planning', desc: 'Feature planning and architecture design' },
+      { title: 'Design', desc: 'UI/UX design and prototyping' },
+      { title: 'Development', desc: 'Full stack development & integration' },
+      { title: 'Testing', desc: 'Quality assurance and performance testing' },
+      { title: 'Deployment', desc: 'Live deployment and monitoring' },
+    ],
+    features: [
+      { title: 'Authentication', desc: 'Secure authentication with JWT, two-factor authentication and role-based access control for maximum security.', stats: [{ val: '100%', label: 'Secure' }, { val: '2FA', label: 'Enabled' }, { val: 'JWT', label: 'Tokens' }] },
+      { title: 'Trading Engine', desc: 'High-performance order matching engine capable of processing thousands of transactions per second with sub-millisecond latency.', stats: [{ val: '50k+', label: 'TPS' }, { val: '<1ms', label: 'Latency' }, { val: '99.9%', label: 'Uptime' }] },
+    ],
+    techNodes: [
+      { icon: 'V', title: 'Frontend', desc: 'Vue.js + Tailwind CSS', color: '#4FC08D' },
+      { icon: 'N', title: 'API', desc: 'Node.js', color: '#339933' },
+      { icon: 'Tw', title: 'Styling', desc: 'Tailwind CSS', color: '#06B6D4' }
+    ],
+    challenges: [
+      'Complex role-based permission management',
+      'Real-time task updates across multiple users',
+      'Handling concurrent data modifications'
+    ],
+    solutions: [
+      'Optimistic locking and queue-based processing',
+      'WebSocket integration for live updates',
+      'Redis caching and pagination strategies'
+    ],
+    metrics: [
+      { val: '12+', label: 'Modules' },
+      { val: '1K+', label: 'Users' }
+    ],
+    prevProject: { slug: 'apollo-logistics', title: 'Apollo Logistics' },
     nextProject: { slug: 'smart-inventory', title: 'Smart Inventory' },
   },
 

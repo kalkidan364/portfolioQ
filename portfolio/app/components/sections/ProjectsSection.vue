@@ -21,7 +21,7 @@
       <div class="grid grid-cols-1 xl:grid-cols-12 gap-5 items-start">
         
         <!-- ===== LEFT: Featured Project Card (col-span-5) ===== -->
-        <div class="xl:col-span-5 bg-[#161616] border border-white/5 rounded-2xl flex flex-row overflow-hidden relative shadow-xl min-h-[500px] sm:min-h-[620px]">
+        <div class="xl:col-span-5 bg-[#0a0a0a] border border-white/5 rounded-2xl flex flex-row overflow-hidden relative shadow-xl min-h-[500px] sm:min-h-[620px]">
 
           <!-- Sidebar (counter + nav arrows only) -->
           <div class="w-10 sm:w-14 shrink-0 border-r border-white/5 flex flex-col items-center justify-end py-5 bg-[#0d0d0d]">
@@ -214,7 +214,6 @@ const projects = ref([
     github: '#',
     tech: [
       { name: 'Vue.js',       icon: 'V', color: '#4FC08D' },
-      { name: 'Node.js',      icon: 'N', color: '#339933' },
       { name: 'MySQL',        icon: 'My', color: '#4479A1' },
       { name: 'Tailwind CSS', icon: 'Tw', color: '#06B6D4' },
       { name: 'Laravel',      icon: 'L', color: '#FF2D20' }
@@ -222,14 +221,55 @@ const projects = ref([
   },
   {
     slug: 'crypto-currency',
-    title: 'Trade.X',
+    title: 'Onchaintrade',
     subtitle: 'Crypto Trade Platform',
     description: 'A real-time crypto trading platform with live charts, secure transactions, and portfolio tracking.',
-    image: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=900&q=80',
+    image: '/images/onchaintrade.png',
     stats: [
       { value: '50+', label: 'Coins' },
       { value: '5K+', label: 'Traders' },
       { value: '99.9%', label: 'Uptime' }
+    ],
+    liveDemo: '#',
+    github: '#',
+    tech: [
+      { name: 'Vue.js',  icon: 'V',  color: '#4FC08D' },
+      { name: 'Laravel', icon: 'L',  color: '#FF2D20' },
+      { name: 'MySQL',   icon: 'My', color: '#4479A1' },
+      { name: 'Tailwind',icon: 'Tw', color: '#06B6D4' },
+      { name: 'Yegara',  icon: 'Y',  color: '#FFD700' }
+    ]
+  },
+  {
+    slug: 'apollo-logistics',
+    title: 'Apollo Logistics',
+    subtitle: 'Logistics Website',
+    description: 'A professional logistics website showcasing clearing services, freight operations, and HR consultancy.',
+    image: '/images/apollo.jpg',
+    stats: [
+      { value: '10+', label: 'Services' },
+      { value: '100%', label: 'Responsive' },
+      { value: 'Fast', label: 'Load' }
+    ],
+    liveDemo: '#',
+    github: '#',
+    tech: [
+      { name: 'HTML5',      icon: 'H5', color: '#E44D26' },
+      { name: 'CSS3',       icon: 'C3', color: '#264DE4' },
+      { name: 'JavaScript', icon: 'JS', color: '#F7DF1E' },
+      { name: 'Bootstrap',  icon: 'B',  color: '#7952B3' }
+    ]
+  },
+  {
+    slug: 'onchaintrade2',
+    title: 'Onchaintrade2',
+    subtitle: 'Next-Gen Crypto Platform',
+    description: 'The most advanced cryptocurrency terminal with institutional-grade execution and unmatched analytics.',
+    image: '/images/onchaintrade2.png',
+    stats: [
+      { value: '$2.8T', label: 'Volume' },
+      { value: '14M+', label: 'Traders' },
+      { value: '100%', label: 'Secure' }
     ],
     liveDemo: '#',
     github: '#',
@@ -264,13 +304,15 @@ const filters = ref([
 const allCards = ref([
   {
     num: '02', category: 'Web Application', filterKey: 'web', slug: 'crypto-currency',
-    title: 'Crypto Currency Trade Platform',
+    title: 'Onchaintrade',
     description: 'Real-time crypto trading platform with live charts and secure transactions.',
-    image: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=400&q=80',
+    image: '/images/onchaintrade.png',
     techIcons: [
       { label: 'V',  color: '#4FC08D' },
-      { label: 'N',  color: '#339933' },
-      { label: 'Tw', color: '#06B6D4' }
+      { label: 'L',  color: '#FF2D20' },
+      { label: 'My', color: '#4479A1' },
+      { label: 'Tw', color: '#06B6D4' },
+      { label: 'Y',  color: '#FFD700' }
     ]
   },
   {
