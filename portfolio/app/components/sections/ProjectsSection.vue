@@ -46,53 +46,35 @@
                 class="w-full h-full object-cover object-center"
               />
               <!-- Overlay for text readability -->
-              <div class="absolute inset-0 bg-gradient-to-r from-[#111]/90 via-[#111]/60 to-transparent"></div>
+              <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#111]/95 pointer-events-none"></div>
             </div>
 
             <!-- Text Content -->
-            <div class="relative z-10 p-5 sm:p-7 flex flex-col h-full">
-              <div class="flex-1">
-                <div class="flex items-center gap-1.5 text-[#D4AF37] text-[9px] font-bold tracking-widest uppercase mb-4">
-                  <svg class="w-2.5 h-2.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"/></svg>
-                  FEATURED PROJECT
-                </div>
-
-                <h3 class="text-3xl sm:text-5xl font-bold text-white mb-1 leading-none">{{ currentProject.title }}</h3>
-                <h4 class="text-base sm:text-lg font-bold text-[#D4AF37] mb-4">{{ currentProject.subtitle }}</h4>
-                <p class="text-gray-400 text-xs leading-relaxed mb-6 max-w-full sm:max-w-[55%]">{{ currentProject.description }}</p>
-
-                <!-- Stats -->
-                <div class="flex items-center gap-0 mb-6 max-w-full overflow-x-auto pb-2 sm:pb-0">
-                  <div v-for="(stat, i) in currentProject.stats" :key="i" class="flex items-center shrink-0">
-                    <div class="text-center px-3 sm:px-4 py-2 bg-[#111]/70 border border-white/5 rounded-lg backdrop-blur-sm" :class="i === 0 ? 'rounded-r-none' : i === currentProject.stats.length - 1 ? 'rounded-l-none border-l-0' : 'rounded-none border-l-0'">
-                      <p class="font-bold text-xs sm:text-sm" :class="i === currentProject.stats.length - 1 ? 'text-[#D4AF37]' : 'text-white'">{{ stat.value }}</p>
-                      <p class="text-[8px] sm:text-[9px] uppercase tracking-wider mt-0.5" :class="i === currentProject.stats.length - 1 ? 'text-[#D4AF37]/70' : 'text-gray-500'">{{ stat.label }}</p>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Action Buttons -->
-                <div class="flex gap-3">
-                  <a v-if="currentProject.slug" :href="`/projects/${currentProject.slug}`" class="px-5 py-2 bg-gradient-to-r from-[#e5c158] to-[#b89430] hover:brightness-110 text-black font-semibold rounded-lg text-xs flex items-center gap-2 transition-all">
-                    Live Demo <svg class="w-3 h-3 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-                  </a>
-                  <a v-else href="#" class="px-5 py-2 bg-gradient-to-r from-[#e5c158] to-[#b89430] hover:brightness-110 text-black font-semibold rounded-lg text-xs flex items-center gap-2 transition-all">
-                    Coming Soon <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                  </a>
-                  <a :href="currentProject.github" class="px-5 py-2 border border-white/10 text-white font-medium rounded-lg text-xs flex items-center gap-2 bg-[#111]/80 hover:bg-[#1a1a1a] transition-colors">
-                    <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                    View on GitHub
-                  </a>
-                </div>
+            <div class="relative z-10 p-5 sm:p-7 flex flex-col h-full justify-between pointer-events-none">
+              <!-- Top Label -->
+              <div class="flex items-center gap-1.5 text-[#D4AF37] text-[10px] font-bold tracking-widest uppercase drop-shadow-md">
+                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"/></svg>
+                FEATURED PROJECT
               </div>
 
-              <!-- Tech Stack at bottom -->
-              <div class="border-t border-white/5 pt-4 mt-4">
-                <p class="text-[#D4AF37] text-[8px] font-bold tracking-widest uppercase mb-3">TECHNOLOGIES USED</p>
-                <div class="flex flex-wrap gap-1.5">
-                  <div v-for="tech in currentProject.tech" :key="tech.name" class="px-2.5 py-1.5 rounded-md bg-[#111] border border-white/5 flex items-center gap-1.5">
-                    <span class="text-[10px] font-medium" :style="{ color: tech.color }">{{ tech.icon }}</span>
-                    <span class="text-[10px] text-gray-300">{{ tech.name }}</span>
+              <!-- Bottom Info (Title & Tech) -->
+              <div class="pointer-events-auto">
+                <a v-if="currentProject.slug" :href="`/projects/${currentProject.slug}`" class="block group/link mb-4">
+                  <h3 class="text-3xl sm:text-5xl font-bold text-white leading-none drop-shadow-lg group-hover/link:text-[#e5c158] transition-colors flex items-center gap-3">
+                    {{ currentProject.title }}
+                    <svg class="w-6 h-6 opacity-0 group-hover/link:opacity-100 transition-opacity -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                  </h3>
+                  <h4 class="text-sm sm:text-base font-bold text-[#D4AF37] mt-2 drop-shadow-md">{{ currentProject.subtitle }}</h4>
+                </a>
+
+                <!-- Tech Stack at bottom -->
+                <div class="border-t border-white/10 pt-4">
+                  <p class="text-[#D4AF37] text-[8px] font-bold tracking-widest uppercase mb-3">TECHNOLOGIES USED</p>
+                  <div class="flex flex-wrap gap-1.5">
+                    <div v-for="tech in currentProject.tech" :key="tech.name" class="px-2.5 py-1.5 rounded-md bg-black/50 backdrop-blur-sm border border-white/10 flex items-center gap-1.5">
+                      <span class="text-[10px] font-medium" :style="{ color: tech.color }">{{ tech.icon }}</span>
+                      <span class="text-[10px] text-gray-200">{{ tech.name }}</span>
+                    </div>
                   </div>
                 </div>
               </div>
