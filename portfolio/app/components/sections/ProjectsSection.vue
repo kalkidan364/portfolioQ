@@ -18,10 +18,10 @@
       </div>
 
       <!-- Main Content Grid -->
-      <div class="grid grid-cols-1 xl:grid-cols-12 gap-5 items-start">
+      <div class="grid grid-cols-1 xl:grid-cols-12 gap-5 items-stretch">
         
         <!-- ===== LEFT: Featured Project Card (col-span-5) ===== -->
-        <div class="xl:col-span-5 bg-[#0a0a0a] border border-white/5 rounded-2xl flex flex-row overflow-hidden relative shadow-xl min-h-[500px] sm:min-h-[620px]">
+        <div class="xl:col-span-5 bg-[#0a0a0a] border border-white/5 rounded-2xl flex flex-row overflow-hidden relative shadow-xl min-h-[480px] sm:min-h-[560px] h-full">
 
           <!-- Sidebar (counter + nav arrows only) -->
           <div class="w-10 sm:w-14 shrink-0 border-r border-white/5 flex flex-col items-center justify-end py-5 bg-[#0d0d0d]">
@@ -339,7 +339,19 @@ const filters = ref([
 // ─── Grid project cards ─────────────────────────────────────────────
 const allCards = ref([
   {
-    num: '02', category: 'Web Application', filterKey: 'web', slug: 'crypto-currency',
+    num: '01', category: 'Management System', filterKey: 'mgmt', slug: 'work-1',
+    title: 'Online Exam System',
+    description: 'A comprehensive online exam system for managing assessments, tracking progress, and automated grading.',
+    image: '/images/online-exam.png',
+    techIcons: [
+      { label: 'V',  color: '#4FC08D' },
+      { label: 'L',  color: '#FF2D20' },
+      { label: 'My', color: '#4479A1' },
+      { label: 'Tw', color: '#06B6D4' }
+    ]
+  },
+  {
+    num: '02', category: 'Business Application', filterKey: 'business', slug: 'crypto-currency',
     title: 'Onchaintrade',
     description: 'Real-time crypto trading platform with live charts and secure transactions.',
     image: '/images/onchaintrade.png',
@@ -352,7 +364,7 @@ const allCards = ref([
     ]
   },
   {
-    num: '03', category: 'Website', filterKey: 'web', slug: 'apollo-logistics',
+    num: '03', category: 'Web Application', filterKey: 'web', slug: 'apollo-logistics',
     title: 'Apollo Logistics Website',
     description: 'Professional logistics website showcasing services, tracking, and company info.',
     image: '/images/apollo.jpg',
@@ -364,7 +376,7 @@ const allCards = ref([
     ]
   },
   {
-    num: '04', category: 'Web Application', filterKey: 'web', slug: 'onchaintrade2',
+    num: '04', category: 'Business Application', filterKey: 'business', slug: 'onchaintrade2',
     title: 'Onchaintrade2',
     description: 'The most advanced cryptocurrency terminal with institutional-grade execution.',
     image: '/images/onchaintrade2.png',
@@ -375,7 +387,7 @@ const allCards = ref([
     ]
   },
   {
-    num: '05', category: 'Business Application', filterKey: 'business', slug: 'netflix-clone',
+    num: '05', category: 'Web Application', filterKey: 'web', slug: 'netflix-clone',
     title: 'Netflix Clone',
     description: 'A responsive Netflix UI clone built to demonstrate modern frontend styling and layout techniques.',
     image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80',
@@ -386,7 +398,7 @@ const allCards = ref([
     ]
   },
   {
-    num: '06', category: 'Business Application', filterKey: 'business', slug: 'amazon-clone',
+    num: '06', category: 'Web Application', filterKey: 'web', slug: 'amazon-clone',
     title: 'Amazon Clone',
     description: 'Responsive blog and e-commerce UI inspired by Amazon\'s design principles.',
     image: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80',
@@ -395,11 +407,22 @@ const allCards = ref([
       { label: 'C3', color: '#264DE4' },
       { label: 'JS', color: '#F7DF1E' }
     ]
+  },
+  {
+    num: '07', category: 'Business Application', filterKey: 'business', slug: 'ecommerce-platform',
+    title: 'E-commerce App',
+    description: 'A modern e-commerce platform with a mobile-first design, campus deals, and product feeds.',
+    image: '/images/ecommerce.png',
+    techIcons: [
+      { label: 'V',  color: '#4FC08D' },
+      { label: 'Tw', color: '#06B6D4' },
+      { label: 'N',  color: '#339933' }
+    ]
   }
 ])
 
 const filteredCards = computed(() => {
-  if (activeFilter.value === 'all') return allCards.value
+  if (activeFilter.value === 'all') return allCards.value.slice(0, 5)
   return allCards.value.filter(c => c.filterKey === activeFilter.value)
 })
 

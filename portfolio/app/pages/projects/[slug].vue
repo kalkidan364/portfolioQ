@@ -19,81 +19,92 @@
         </div>
 
         <!-- ══════════════════════════════════════
-             HERO SECTION
+             HERO SECTION (FULL WIDTH PANORAMA)
         ══════════════════════════════════════ -->
-        <section class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center mb-16 relative">
-          
-          <!-- Background Glow -->
-          <div class="absolute right-[10%] top-1/2 -translate-y-1/2 w-[800px] h-[500px] bg-[#D4AF37]/10 rounded-[100%] blur-[120px] pointer-events-none -z-10 transform -rotate-12"></div>
-          <!-- Fine glowing orbital rings -->
-          <div class="absolute right-[5%] top-1/2 -translate-y-1/2 w-[900px] h-[400px] border border-[#D4AF37]/10 rounded-[100%] pointer-events-none -z-10 transform -rotate-[15deg]"></div>
-          <div class="absolute right-[8%] top-1/2 -translate-y-1/2 w-[800px] h-[350px] border border-[#D4AF37]/20 rounded-[100%] pointer-events-none -z-10 transform -rotate-[15deg]"></div>
+        <section class="relative w-full rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_60px_rgba(0,0,0,0.7)] mb-14 min-h-[550px] lg:min-h-[640px] flex flex-col justify-between group">
+          <!-- Full Width Background Image -->
+          <div class="absolute inset-0 z-0 overflow-hidden bg-[#0d0d0d]">
+            <img 
+              :src="projectData.heroImage" 
+              :alt="projectData.title" 
+              class="w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-[1.02]" 
+            />
+            <!-- Gradient Overlays ensuring text is ultra-clear while the dashboard is visible across the entire width -->
+            <div class="absolute inset-0 bg-gradient-to-r from-[#050505]/95 via-[#050505]/80 to-[#050505]/40 pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_25%_25%,rgba(212,175,55,0.06),transparent_60%)] pointer-events-none"></div>
+          </div>
 
-          <!-- Left Text Content -->
-          <div class="space-y-6">
-            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#D4AF37]/5">
-              <svg class="w-2.5 h-2.5 text-[#D4AF37]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"/></svg>
-              <span class="text-[#D4AF37] text-[9px] font-bold tracking-widest uppercase">FEATURED PROJECT</span>
+          <!-- Top Info Area (Featured Project Badge & Status) -->
+          <div class="relative z-10 p-6 sm:p-10 pb-0 flex items-center justify-between">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#D4AF37]/30 bg-[#050505]/60 backdrop-blur-md">
+              <svg class="w-3 h-3 text-[#D4AF37]" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L15 9L22 12L15 15L12 22L9 15L2 12L9 9L12 2Z"/></svg>
+              <span class="text-[#D4AF37] text-[10px] font-bold tracking-widest uppercase">FEATURED PROJECT</span>
+            </div>
+            <div class="hidden sm:flex items-center gap-2 text-xs font-mono text-gray-300 bg-black/50 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              {{ projectData.meta?.status || 'Completed' }} • {{ projectData.meta?.year || '2024' }}
+            </div>
+          </div>
+
+          <!-- Main Content Area -->
+          <div class="relative z-10 p-6 sm:p-10 lg:p-12 pt-6 max-w-4xl flex flex-col justify-end space-y-6">
+            <!-- Title & Subtitle -->
+            <div>
+              <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white mb-2 leading-none drop-shadow-md">
+                {{ projectData.title }}
+              </h1>
+              <p v-if="projectData.subtitle" class="text-base sm:text-lg font-semibold text-[#D4AF37] drop-shadow-sm">
+                {{ projectData.subtitle }}
+              </p>
             </div>
 
-            <h1 class="text-5xl md:text-6xl lg:text-[72px] font-bold leading-[1.1] tracking-tight">
-              {{ projectData.title.split(' ')[0] }} {{ projectData.title.split(' ')[1] }}<br/>
-              <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4AF37] via-[#F3E5AB] to-[#D4AF37]">{{ projectData.title.split(' ').slice(2).join(' ') }}</span>
-            </h1>
-
-            <p class="text-gray-400 text-sm md:text-base leading-relaxed max-w-lg">
+            <!-- Description -->
+            <p class="text-gray-300 text-xs sm:text-sm leading-relaxed max-w-2xl drop-shadow-sm">
               {{ projectData.description }}
             </p>
 
-            <!-- Meta Grid -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 py-4 border-t border-b border-white/5 max-w-xl">
+            <!-- Meta Row -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 py-3 border-y border-white/10 max-w-2xl bg-black/40 backdrop-blur-sm p-3.5 rounded-xl">
               <div>
-                <p class="text-gray-500 flex items-center gap-1.5 text-[9px] uppercase tracking-wider mb-1"><svg class="w-3 h-3 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg> Category</p>
-                <p class="text-xs font-semibold text-white">{{ projectData.meta.category }}</p>
+                <p class="text-gray-400 text-[9px] uppercase tracking-wider mb-0.5">Category</p>
+                <p class="text-xs font-semibold text-white">{{ projectData.meta?.category }}</p>
               </div>
               <div>
-                <p class="text-gray-500 flex items-center gap-1.5 text-[9px] uppercase tracking-wider mb-1"><svg class="w-3 h-3 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg> Year</p>
-                <p class="text-xs font-semibold text-white">{{ projectData.meta.year }}</p>
+                <p class="text-gray-400 text-[9px] uppercase tracking-wider mb-0.5">Role</p>
+                <p class="text-xs font-semibold text-white">{{ projectData.meta?.role }}</p>
               </div>
               <div>
-                <p class="text-gray-500 flex items-center gap-1.5 text-[9px] uppercase tracking-wider mb-1"><svg class="w-3 h-3 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg> Status</p>
-                <p class="text-xs font-semibold text-white">{{ projectData.meta.status }}</p>
+                <p class="text-gray-400 text-[9px] uppercase tracking-wider mb-0.5">Platform</p>
+                <p class="text-xs font-semibold text-white">Web / Responsive</p>
               </div>
               <div>
-                <p class="text-gray-500 flex items-center gap-1.5 text-[9px] uppercase tracking-wider mb-1"><svg class="w-3 h-3 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/></svg> Role</p>
-                <p class="text-xs font-semibold text-white">{{ projectData.meta.role }}</p>
+                <p class="text-gray-400 text-[9px] uppercase tracking-wider mb-0.5">Year</p>
+                <p class="text-xs font-semibold text-white">{{ projectData.meta?.year }}</p>
               </div>
             </div>
 
-            <!-- Stats -->
-            <div class="flex items-center gap-8 py-2">
+            <!-- Stats Counters -->
+            <div class="flex flex-wrap items-center gap-6 sm:gap-10 pt-1">
               <div v-for="stat in projectData.stats" :key="stat.label">
-                <p class="text-[#D4AF37] font-bold text-2xl leading-none mb-1">{{ stat.value }}</p>
-                <p class="text-[9px] text-gray-500 uppercase tracking-widest">{{ stat.label }}</p>
+                <p class="text-[#D4AF37] font-bold text-xl sm:text-2xl leading-none mb-1 drop-shadow-sm">{{ stat.value }}</p>
+                <p class="text-[9px] text-gray-400 uppercase tracking-widest">{{ stat.label }}</p>
               </div>
             </div>
 
             <!-- Buttons -->
-            <div class="flex flex-wrap gap-4 pt-4">
-              <a href="#" class="px-6 py-2.5 bg-gradient-to-r from-[#D4AF37] to-[#B5952F] text-black font-semibold text-xs rounded-lg hover:brightness-110 transition-all flex items-center gap-2 shadow-[0_0_20px_rgba(212,175,55,0.3)]">
-                Live Demo <svg class="w-3 h-3 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <a href="#" class="px-6 py-2.5 bg-gradient-to-r from-[#D4AF37] to-[#B5952F] text-black font-semibold text-xs rounded-lg hover:brightness-110 transition-all flex items-center gap-2 shadow-[0_0_25px_rgba(212,175,55,0.35)]">
+                Live Demo <svg class="w-3.5 h-3.5 -rotate-45" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </a>
-              <a href="#" class="px-6 py-2.5 border border-white/10 bg-white/5 text-white font-medium text-xs rounded-lg hover:bg-white/10 hover:border-white/20 transition-all flex items-center gap-2">
+              <a href="#" class="px-6 py-2.5 border border-white/10 bg-[#161616]/90 backdrop-blur-md text-white font-medium text-xs rounded-lg hover:bg-white/15 hover:border-white/20 transition-all flex items-center gap-2">
                 <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                 View on GitHub
               </a>
-              <NuxtLink to="/#projects" class="px-6 py-2.5 border border-white/5 bg-transparent text-gray-400 font-medium text-xs rounded-lg hover:text-white transition-all flex items-center gap-2">
+              <NuxtLink to="/#projects" class="px-5 py-2.5 border border-white/5 bg-black/40 backdrop-blur-md text-gray-400 font-medium text-xs rounded-lg hover:text-white hover:border-white/20 transition-all flex items-center gap-2">
                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
                 Back to Projects
               </NuxtLink>
-            </div>
-          </div>
-
-          <!-- Right Hero Image -->
-          <div class="relative z-10 w-full h-[400px] md:h-[500px] flex items-center justify-center perspective-[1000px]">
-            <div class="relative w-full h-full rounded-2xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] group">
-              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent z-10 pointer-events-none"></div>
-              <img :src="projectData.heroImage" :alt="projectData.title" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
             </div>
           </div>
         </section>
@@ -477,9 +488,10 @@ const slug = computed(() => route.params.slug as string)
 // ═══════════════════════════════════════════════════════════════
 const projectsDB: Record<string, any> = {
   'work-1': {
-    title: 'Work.1',
+    title: 'Online Exam System',
+    subtitle: 'Wollo University Examination Platform',
     description: 'A powerful full-stack online exam system designed to help educational institutions manage assessments, track student progress, optimize workflows, and grade automatically.',
-    heroImage: '/images/online-exam.png',
+    heroImage: '/images/online-exam-hero.png',
     meta: { category: 'Online Exam System', year: '2024', status: 'Completed', role: 'Full Stack Developer' },
     stats: [
       { value: '500+', label: 'Exams' },
@@ -490,16 +502,16 @@ const projectsDB: Record<string, any> = {
     quickInfo: [
       { label: 'Duration', value: '4 Months' },
       { label: 'Project Type', value: 'Online Exam System' },
-      { label: 'Client', value: 'Educational Institution' },
+      { label: 'Client', value: 'Wollo University' },
       { label: 'Team Size', value: '1 Developer' },
       { label: 'Platform', value: 'Web' },
       { label: 'Responsive', value: '100%' },
       { label: 'Status', value: 'Completed' },
     ],
     gallery: [
-      { title: 'Admin Dashboard', res: '1920 x 1080', img: '/images/online-exam.png' },
+      { title: 'Semester Submission Dashboard', res: '1920 x 1080', img: '/images/online-exam-hero.png' },
+      { title: 'Reports & Analytics', res: '1920 x 1080', img: '/images/online-exam.png' },
       { title: 'Task Board', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&q=80' },
-      { title: 'Analytics View', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80' },
       { title: 'Team Management', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80' },
       { title: 'Mobile View', res: '375 x 812', img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80' },
     ],
@@ -957,7 +969,6 @@ const projectsDB: Record<string, any> = {
       { val: '0', label: 'Dependencies' },
       { val: 'A+', label: 'Grade' },
     ],
-    prevProject: { slug: 'amazon-clone', title: 'Amazon Clone' },
     prevProject: { slug: 'amazon-clone', title: 'Amazon Clone' },
     nextProject: { slug: 'netflix-clone', title: 'Netflix Clone' },
   },
