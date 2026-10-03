@@ -156,47 +156,65 @@
             </div>
 
             <!-- Central Mockup -->
-            <div class="relative z-10 w-[320px]">
-              <div class="bg-[#111] rounded-lg border border-white/10 p-1.5 shadow-[0_0_50px_rgba(212,175,55,0.1)] relative">
-                <img :src="activeItem?.img" :key="activeItem?.img" class="w-full h-auto rounded-md opacity-90 animate-[fadeIn_0.4s_ease-out]" />
+            <div class="relative z-10 w-[340px] sm:w-[420px] md:w-[460px]">
+              <div 
+                @click="openModal(activeItem?.img)"
+                class="bg-[#111] rounded-xl border border-white/10 p-2 shadow-[0_0_50px_rgba(212,175,55,0.15)] relative group cursor-pointer hover:border-[#D4AF37]/50 transition-all"
+              >
+                <img :src="activeItem?.img" :key="activeItem?.img" class="w-full h-auto rounded-lg opacity-90 group-hover:opacity-100 transition-opacity animate-[fadeIn_0.4s_ease-out]" />
+                <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity rounded-lg">
+                  <span class="px-3.5 py-1.5 rounded-full bg-black/80 border border-[#D4AF37]/50 text-[#D4AF37] text-xs font-semibold flex items-center gap-2 shadow-lg">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+                    View Fullscreen
+                  </span>
+                </div>
               </div>
               <div class="text-center mt-3">
-                <p class="text-white text-xs font-bold">{{ activeItem?.title }}</p>
+                <p class="text-white text-xs sm:text-sm font-bold">{{ activeItem?.title }}</p>
                 <p class="text-gray-500 text-[9px] mt-0.5">{{ activeItem?.res }}</p>
               </div>
             </div>
 
             <!-- Floating Satellite Screens -->
-            <div @click="activeGalleryIndex = galleryItems.indexOf(satelliteItems[0])" class="absolute top-[20%] left-[15%] w-36 rotate-[-15deg] group cursor-pointer z-20">
-              <img :src="satelliteItems[0]?.img" :key="satelliteItems[0]?.img" class="rounded border border-[#D4AF37]/30 opacity-70 group-hover:opacity-100 transition-opacity animate-[fadeIn_0.4s_ease-out]" />
-              <p class="text-[9px] text-gray-400 text-center mt-1">{{ satelliteItems[0]?.title }}</p>
+            <div @click="activeGalleryIndex = galleryItems.indexOf(satelliteItems[0])" class="absolute top-[16%] left-[10%] w-36 sm:w-44 rotate-[-12deg] group cursor-pointer z-20">
+              <img :src="satelliteItems[0]?.img" :key="satelliteItems[0]?.img" class="rounded-lg border border-[#D4AF37]/30 opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all shadow-xl animate-[fadeIn_0.4s_ease-out]" />
+              <p class="text-[9px] text-gray-400 text-center mt-1 truncate">{{ satelliteItems[0]?.title }}</p>
             </div>
             
-            <div @click="activeGalleryIndex = galleryItems.indexOf(satelliteItems[1])" class="absolute bottom-[20%] left-[20%] w-24 rotate-[10deg] group cursor-pointer z-20">
-              <img :src="satelliteItems[1]?.img" :key="satelliteItems[1]?.img" class="rounded border border-white/20 opacity-50 group-hover:opacity-100 transition-opacity animate-[fadeIn_0.4s_ease-out]" />
-              <p class="text-[9px] text-gray-400 text-center mt-1">{{ satelliteItems[1]?.title }}</p>
+            <div @click="activeGalleryIndex = galleryItems.indexOf(satelliteItems[1])" class="absolute bottom-[16%] left-[12%] w-28 sm:w-36 rotate-[8deg] group cursor-pointer z-20">
+              <img :src="satelliteItems[1]?.img" :key="satelliteItems[1]?.img" class="rounded-lg border border-white/20 opacity-50 group-hover:opacity-100 group-hover:scale-105 transition-all shadow-xl animate-[fadeIn_0.4s_ease-out]" />
+              <p class="text-[9px] text-gray-400 text-center mt-1 truncate">{{ satelliteItems[1]?.title }}</p>
             </div>
 
-            <div @click="activeGalleryIndex = galleryItems.indexOf(satelliteItems[2])" class="absolute top-[25%] right-[25%] w-16 rotate-[15deg] group cursor-pointer z-20">
-              <img :src="satelliteItems[2]?.img" :key="satelliteItems[2]?.img" class="rounded-full border-2 border-[#D4AF37]/50 opacity-80 group-hover:opacity-100 transition-opacity animate-[fadeIn_0.4s_ease-out]" />
-              <p class="text-[9px] text-gray-400 text-center mt-1">{{ satelliteItems[2]?.title }}</p>
+            <div @click="activeGalleryIndex = galleryItems.indexOf(satelliteItems[2])" class="absolute top-[18%] right-[12%] w-28 sm:w-36 rotate-[12deg] group cursor-pointer z-20">
+              <img :src="satelliteItems[2]?.img" :key="satelliteItems[2]?.img" class="rounded-lg border border-[#D4AF37]/30 opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all shadow-xl animate-[fadeIn_0.4s_ease-out]" />
+              <p class="text-[9px] text-gray-400 text-center mt-1 truncate">{{ satelliteItems[2]?.title }}</p>
             </div>
 
-            <div @click="activeGalleryIndex = galleryItems.indexOf(satelliteItems[3])" class="absolute bottom-[25%] right-[15%] w-20 rotate-[-10deg] group cursor-pointer z-20">
-              <img :src="satelliteItems[3]?.img" :key="satelliteItems[3]?.img" class="rounded-lg border border-white/20 opacity-60 group-hover:opacity-100 transition-opacity animate-[fadeIn_0.4s_ease-out]" />
-              <p class="text-[9px] text-gray-400 text-center mt-1">{{ satelliteItems[3]?.title }}</p>
+            <div @click="activeGalleryIndex = galleryItems.indexOf(satelliteItems[3])" class="absolute bottom-[18%] right-[10%] w-32 sm:w-40 rotate-[-8deg] group cursor-pointer z-20">
+              <img :src="satelliteItems[3]?.img" :key="satelliteItems[3]?.img" class="rounded-lg border border-white/20 opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all shadow-xl animate-[fadeIn_0.4s_ease-out]" />
+              <p class="text-[9px] text-gray-400 text-center mt-1 truncate">{{ satelliteItems[3]?.title }}</p>
             </div>
 
             <!-- Nav Arrows -->
-            <button @click="prevGalleryItem" class="absolute left-6 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-[#D4AF37]/30 text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37]/10 transition-colors z-30">
+            <button @click="prevGalleryItem" class="absolute left-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full border border-[#D4AF37]/30 bg-black/60 backdrop-blur-md text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-all z-30 shadow-lg">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
             </button>
-            <button @click="nextGalleryItem" class="absolute right-6 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full border border-[#D4AF37]/30 text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37]/10 transition-colors z-30">
+            <button @click="nextGalleryItem" class="absolute right-6 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full border border-[#D4AF37]/30 bg-black/60 backdrop-blur-md text-[#D4AF37] flex items-center justify-center hover:bg-[#D4AF37] hover:text-black transition-all z-30 shadow-lg">
               <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
             </button>
 
-            <!-- Bottom helper text -->
-            <p class="absolute bottom-6 text-gray-500 text-[10px]">Drag to rotate • Scroll to zoom</p>
+            <!-- Bottom thumbnail navigator dots -->
+            <div class="absolute bottom-5 flex items-center gap-2 z-30 bg-black/60 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10">
+              <button 
+                v-for="(_, idx) in galleryItems" 
+                :key="idx" 
+                @click="activeGalleryIndex = idx"
+                class="h-2 rounded-full transition-all"
+                :class="idx === activeGalleryIndex ? 'w-6 bg-[#D4AF37]' : 'w-2 bg-white/20 hover:bg-white/50'"
+                :title="galleryItems[idx]?.title"
+              ></button>
+            </div>
           </div>
 
           <!-- PROJECT STORY -->
@@ -241,10 +259,14 @@
               <!-- Preview Pane (Right Side) -->
               <div class="w-2/3 border border-white/10 rounded-xl bg-[#111] p-4 flex flex-col relative overflow-hidden">
                 <div :key="activeFeature?.title" class="animate-[fadeIn_0.4s_ease-out] flex flex-col h-full">
-                  <div class="relative flex-1 rounded-lg overflow-hidden border border-white/5 bg-[#1a1a1a] mb-4 group min-h-[120px]">
-                    <img :src="activeFeature?.img" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent flex items-end p-4">
-                      <p class="text-white text-sm font-bold">{{ activeFeature?.title }}</p>
+                  <div class="relative flex-1 rounded-lg overflow-hidden border border-white/5 bg-[#1a1a1a] mb-4 group min-h-[120px] cursor-pointer" @click="openModal(activeFeature?.img)">
+                    <img :src="activeFeature?.img" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-all duration-500 group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#0d0d0d] via-transparent to-transparent flex items-end justify-between p-4">
+                      <p class="text-white text-sm font-bold drop-shadow">{{ activeFeature?.title }}</p>
+                      <span class="text-[9px] px-2 py-0.5 rounded bg-black/60 text-[#D4AF37] border border-[#D4AF37]/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1">
+                        <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                        Zoom
+                      </span>
                     </div>
                   </div>
                   <p class="text-[10px] text-gray-400 leading-relaxed line-clamp-3 mb-4">{{ activeFeature?.desc }}</p>
@@ -462,6 +484,34 @@
           </div>
         </footer>
 
+        <!-- Fullscreen Image Modal Lightbox -->
+        <Teleport to="body">
+          <Transition
+            enter-active-class="transition duration-200 ease-out"
+            enter-from-class="opacity-0 scale-95"
+            enter-to-class="opacity-100 scale-100"
+            leave-active-class="transition duration-150 ease-in"
+            leave-from-class="opacity-100 scale-100"
+            leave-to-class="opacity-0 scale-95"
+          >
+            <div 
+              v-if="isModalOpen" 
+              class="fixed inset-0 z-[100] bg-black/90 backdrop-blur-xl flex flex-col items-center justify-center p-4 md:p-8"
+              @click="closeModal"
+            >
+              <button 
+                @click="closeModal" 
+                class="absolute top-6 right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors z-10"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+              </button>
+              <div class="relative max-w-7xl max-h-[90vh] overflow-hidden rounded-2xl border border-white/15 shadow-2xl" @click.stop>
+                <img :src="modalImage" class="w-full h-auto max-h-[85vh] object-contain rounded-2xl" />
+              </div>
+            </div>
+          </Transition>
+        </Teleport>
+
       </div>
     </main>
   </div>
@@ -509,11 +559,11 @@ const projectsDB: Record<string, any> = {
       { label: 'Status', value: 'Completed' },
     ],
     gallery: [
-      { title: 'Semester Submission Dashboard', res: '1920 x 1080', img: '/images/online-exam-hero.png' },
-      { title: 'Reports & Analytics', res: '1920 x 1080', img: '/images/online-exam.png' },
-      { title: 'Task Board', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=600&q=80' },
-      { title: 'Team Management', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&q=80' },
-      { title: 'Mobile View', res: '375 x 812', img: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&q=80' },
+      { title: 'Student Portal & Academic Dashboard', res: '1920 x 1080', img: '/images/exam-gallery-1.png' },
+      { title: 'Academic Calendar & Schedule', res: '1920 x 1080', img: '/images/exam-gallery-2.png' },
+      { title: 'Instructors Management Directory', res: '1920 x 1080', img: '/images/exam-gallery-3.png' },
+      { title: 'Instructor Profile & Performance', res: '1920 x 1080', img: '/images/exam-gallery-4.png' },
+      { title: 'Super Admin Analytics Dashboard', res: '1920 x 1080', img: '/images/exam-gallery-5.png' },
     ],
     story: [
       { title: 'Requirements', desc: 'Gathering business workflows and management needs from stakeholders' },
@@ -524,13 +574,13 @@ const projectsDB: Record<string, any> = {
       { title: 'Deployment', desc: 'Production deployment with CI/CD pipeline and monitoring' },
     ],
     features: [
-      { title: 'Task Management', desc: 'Create, assign, prioritize and track tasks with drag-and-drop Kanban boards. Set deadlines, add labels, and manage sub-tasks for complex projects.', stats: [{ val: '500+', label: 'Tasks' }, { val: 'Kanban', label: 'Board' }, { val: 'Drag', label: 'Drop' }] },
-      { title: 'Team Collaboration', desc: 'Real-time team collaboration with shared workspaces, comments, file attachments, and @mentions for seamless communication across departments.', stats: [{ val: '50+', label: 'Teams' }, { val: 'Real-time', label: 'Chat' }, { val: 'Files', label: 'Sharing' }] },
-      { title: 'Analytics Dashboard', desc: 'Comprehensive analytics with interactive charts showing task completion rates, team performance metrics, and project timeline insights.', stats: [{ val: '12+', label: 'Charts' }, { val: 'Real-time', label: 'Data' }, { val: 'Export', label: 'PDF' }] },
-      { title: 'Role-Based Access', desc: 'Granular permission system with Admin, Manager, and Employee roles. Control who can view, edit, or manage specific modules and data.', stats: [{ val: '5', label: 'Roles' }, { val: 'RBAC', label: 'System' }, { val: 'Audit', label: 'Logs' }] },
-      { title: 'Report Generator', desc: 'Automated report generation for daily, weekly, and monthly summaries with customizable templates and scheduled email delivery.', stats: [{ val: '50+', label: 'Templates' }, { val: 'Auto', label: 'Schedule' }, { val: 'Email', label: 'Delivery' }] },
-      { title: 'Notifications', desc: 'Smart notification system with push, email, and in-app alerts for task assignments, deadline reminders, and status updates.', stats: [{ val: 'Push', label: 'Web' }, { val: 'Email', label: 'Alerts' }, { val: 'In-App', label: 'Notify' }] },
-      { title: 'Calendar View', desc: 'Interactive calendar with drag-and-drop scheduling, milestone tracking, and Gantt chart view for project timeline management.', stats: [{ val: 'Gantt', label: 'Chart' }, { val: 'Drag', label: 'Schedule' }, { val: 'Sync', label: 'Google' }] },
+      { title: 'Exam Management', desc: 'Create, schedule, configure exam duration, set passing criteria, and manage digital question banks with automated grading.', stats: [{ val: '18+', label: 'Exams' }, { val: '2', label: 'Active Now' }, { val: '100%', label: 'Automated' }], img: '/images/feature-exam-mgmt.png' },
+      { title: 'Active Logs', desc: 'Real-time department audit trails and activity logging. Track user actions, records submissions, and administrative events live.', stats: [{ val: 'Live', label: 'Tracking' }, { val: 'Audit', label: 'Trails' }, { val: 'Secure', label: 'Logs' }], img: '/images/feature-active-logs.png' },
+      { title: 'Analytics Dashboard', desc: 'Comprehensive analytics with interactive charts showing exam completion rates, department performance metrics, and score distributions.', stats: [{ val: '12+', label: 'Charts' }, { val: 'Real-time', label: 'Data' }, { val: 'Export', label: 'PDF' }], img: '/images/exam-gallery-5.png' },
+      { title: 'Role-Based Access', desc: 'Granular permission system with dedicated portals for Students, Instructors, Department Heads, and Super Administrators.', stats: [{ val: '4', label: 'Roles' }, { val: 'RBAC', label: 'System' }, { val: 'JWT', label: 'Tokens' }], img: '/images/feature-role-base.png' },
+      { title: 'Report Generator', desc: 'Automated report generation for academic performance, exam result distributions, and course completion summaries with instant export.', stats: [{ val: '1,248', label: 'Students' }, { val: '142', label: 'Courses' }, { val: 'Instant', label: 'Export' }], img: '/images/feature-reports.png' },
+      { title: 'Notifications', desc: 'Smart notification system with push, email, and in-app alerts for scheduled exams, submission confirmations, and grade publications.', stats: [{ val: 'Push', label: 'Web' }, { val: 'Email', label: 'Alerts' }, { val: 'In-App', label: 'Notify' }], img: '/images/online-exam-hero.png' },
+      { title: 'Calendar View', desc: 'Interactive calendar with drag-and-drop scheduling, exam milestone tracking, and semester timetable management.', stats: [{ val: 'Events', label: 'Calendar' }, { val: 'Exams', label: 'Schedule' }, { val: 'Academic', label: 'Sync' }], img: '/images/exam-gallery-2.png' },
     ],
     techNodes: [
       { icon: 'V', title: 'Frontend', desc: 'Vue.js 3 + Tailwind CSS', color: '#4FC08D' },
@@ -970,128 +1020,6 @@ const projectsDB: Record<string, any> = {
       { val: 'A+', label: 'Grade' },
     ],
     prevProject: { slug: 'amazon-clone', title: 'Amazon Clone' },
-    nextProject: { slug: 'netflix-clone', title: 'Netflix Clone' },
-  },
-
-  'netflix-clone': {
-    title: 'Netflix Clone',
-    description: 'A responsive Netflix UI clone built to demonstrate modern frontend styling and layout techniques.',
-    heroImage: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80',
-    meta: { category: 'Frontend Web App', year: '2023', status: 'Completed', role: 'Frontend Developer' },
-    stats: [
-      { value: '100%', label: 'Responsive' },
-      { value: '0', label: 'Dependencies' },
-      { value: 'Custom', label: 'CSS' },
-      { value: 'Flexbox', label: 'Layout' },
-    ],
-    quickInfo: [
-      { label: 'Duration', value: '1 Week' },
-      { label: 'Project Type', value: 'UI Clone' },
-      { label: 'Client', value: 'Personal' },
-      { label: 'Team Size', value: '1 Developer' },
-      { label: 'Platform', value: 'Web' },
-      { label: 'Responsive', value: '100%' },
-      { label: 'Status', value: 'Completed' },
-    ],
-    gallery: [
-      { title: 'Hero Section', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80' },
-      { title: 'Movie Slider', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80' },
-      { title: 'Mobile View', res: '375 x 812', img: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80' }
-    ],
-    story: [
-      { title: 'Analysis', desc: 'Analyzing Netflix UI components' },
-      { title: 'Setup', desc: 'Project setup with HTML and CSS' },
-      { title: 'Layout', desc: 'Building responsive flexbox layouts' },
-      { title: 'Styling', desc: 'Applying custom styling and animations' },
-      { title: 'Interactivity', desc: 'Adding JavaScript for sliders' },
-      { title: 'Refining', desc: 'Polishing mobile responsiveness' }
-    ],
-    features: [
-      { title: 'Responsive Hero Banner', desc: 'A full-width hero section that adapts to all screen sizes with smooth gradient overlays.', stats: [{ val: '100%', label: 'Width' }, { val: 'HD', label: 'Images' }, { val: 'Dynamic', label: 'Sizing' }] },
-      { title: 'Movie Carousels', desc: 'Horizontal scrolling movie rows with hover scale effects.', stats: [{ val: 'Smooth', label: 'Scroll' }, { val: 'Hover', label: 'Effects' }, { val: 'Touch', label: 'Support' }] },
-      { title: 'CSS Grid & Flexbox', desc: 'Modern layout techniques used for perfect alignment without heavy frameworks.', stats: [{ val: 'Flex', label: 'Layout' }, { val: 'Grid', label: 'System' }, { val: 'Vanilla', label: 'CSS' }] }
-    ],
-    techNodes: [
-      { icon: 'H5', title: 'HTML5', desc: 'Semantic Markup', color: '#E44D26' },
-      { icon: 'C3', title: 'CSS3', desc: 'Custom Styles & Flexbox', color: '#264DE4' },
-      { icon: 'JS', title: 'JavaScript', desc: 'DOM Manipulation', color: '#F7DF1E' }
-    ],
-    challenges: [
-      'Replicating complex hover states',
-      'Building a touch-friendly carousel without libraries',
-      'Maintaining responsiveness across all device sizes'
-    ],
-    solutions: [
-      'Used CSS transitions and transforms',
-      'Implemented custom vanilla JS scroll logic',
-      'Utilized CSS media queries and relative units'
-    ],
-    metrics: [
-      { val: '3', label: 'Pages' },
-      { val: '100%', label: 'Responsive' },
-      { val: '99', label: 'Performance' },
-      { val: '100', label: 'Accessibility' }
-    ],
-    prevProject: { slug: 'smart-inventory', title: 'Smart Inventory' },
-    nextProject: { slug: 'amazon-clone', title: 'Amazon Clone' },
-  },
-
-  'amazon-clone': {
-    title: 'Amazon Clone',
-    description: 'Responsive blog and e-commerce UI inspired by Amazon\'s design principles.',
-    heroImage: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80',
-    meta: { category: 'Frontend Web App', year: '2023', status: 'Completed', role: 'Frontend Developer' },
-    stats: [
-      { value: '100%', label: 'Responsive' },
-      { value: 'Modern', label: 'Design' },
-      { value: 'E-commerce', label: 'UI' },
-      { value: 'Fast', label: 'Load' },
-    ],
-    quickInfo: [
-      { label: 'Duration', value: '2 Weeks' },
-      { label: 'Project Type', value: 'UI Clone' },
-      { label: 'Client', value: 'Personal' },
-      { label: 'Team Size', value: '1 Developer' },
-      { label: 'Platform', value: 'Web' },
-      { label: 'Responsive', value: '100%' },
-      { label: 'Status', value: 'Completed' },
-    ],
-    gallery: [
-      { title: 'Home Page', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80' },
-      { title: 'Product View', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80' },
-      { title: 'Cart Page', res: '375 x 812', img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80' }
-    ],
-    story: [
-      { title: 'Planning', desc: 'Analyzing e-commerce flows' },
-      { title: 'Design', desc: 'Wireframing components' },
-      { title: 'Frontend', desc: 'Building responsive pages' },
-      { title: 'Logic', desc: 'Adding cart functionality mock' },
-      { title: 'Optimization', desc: 'Improving performance' },
-      { title: 'Deployment', desc: 'Hosting on Vercel' }
-    ],
-    features: [
-      { title: 'Product Listing', desc: 'Dynamic product grid with responsive columns.', stats: [{ val: 'Grid', label: 'Layout' }, { val: 'Hover', label: 'Effects' }, { val: 'Images', label: 'Lazy Load' }] },
-      { title: 'Shopping Cart UI', desc: 'Interactive cart interface to mock adding and removing items.', stats: [{ val: 'Dynamic', label: 'State' }, { val: 'Local', label: 'Storage' }, { val: 'Smooth', label: 'Updates' }] }
-    ],
-    techNodes: [
-      { icon: 'H5', title: 'HTML5', desc: 'Semantic Markup', color: '#E44D26' },
-      { icon: 'C3', title: 'CSS3', desc: 'Custom Styles', color: '#264DE4' },
-      { icon: 'JS', title: 'JavaScript', desc: 'Logic', color: '#F7DF1E' }
-    ],
-    challenges: [
-      'Complex navigation header',
-      'Responsive product grid'
-    ],
-    solutions: [
-      'CSS Flexbox for header layout',
-      'CSS Grid for products'
-    ],
-    metrics: [
-      { val: '4', label: 'Pages' },
-      { val: '100%', label: 'Responsive' },
-      { val: 'Fast', label: 'Performance' }
-    ],
-    prevProject: { slug: 'netflix-clone', title: 'Netflix Clone' },
     nextProject: { slug: 'ecommerce-platform', title: 'E-commerce App' },
   },
 
@@ -1206,7 +1134,7 @@ const featuresList = computed(() => {
   return projectData.value.features.map((f: any, i: number) => ({
     ...f,
     icon: featureIcons[i] || featureIcons[0],
-    img: projectData.value.heroImage,
+    img: f.img || projectData.value.heroImage,
   }))
 })
 const activeFeature = computed(() => featuresList.value[activeFeatureIndex.value])
@@ -1256,10 +1184,23 @@ onUnmounted(() => {
   if (spinInterval) clearInterval(spinInterval)
 })
 
+// Modal State
+const isModalOpen = ref(false)
+const modalImage = ref('')
+const openModal = (img?: string) => {
+  if (!img) return
+  modalImage.value = img
+  isModalOpen.value = true
+}
+const closeModal = () => {
+  isModalOpen.value = false
+}
+
 // Reset state when slug changes
 watch(slug, () => {
   activeGalleryIndex.value = 0
   activeFeatureIndex.value = 0
+  isModalOpen.value = false
   window.scrollTo({ top: 0, behavior: 'smooth' })
 })
 
