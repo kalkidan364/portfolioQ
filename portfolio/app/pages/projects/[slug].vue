@@ -958,7 +958,192 @@ const projectsDB: Record<string, any> = {
       { val: 'A+', label: 'Grade' },
     ],
     prevProject: { slug: 'amazon-clone', title: 'Amazon Clone' },
-    nextProject: { slug: 'crypto-currency', title: 'Crypto Currency' },
+    prevProject: { slug: 'amazon-clone', title: 'Amazon Clone' },
+    nextProject: { slug: 'netflix-clone', title: 'Netflix Clone' },
+  },
+
+  'netflix-clone': {
+    title: 'Netflix Clone',
+    description: 'A responsive Netflix UI clone built to demonstrate modern frontend styling and layout techniques.',
+    heroImage: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80',
+    meta: { category: 'Frontend Web App', year: '2023', status: 'Completed', role: 'Frontend Developer' },
+    stats: [
+      { value: '100%', label: 'Responsive' },
+      { value: '0', label: 'Dependencies' },
+      { value: 'Custom', label: 'CSS' },
+      { value: 'Flexbox', label: 'Layout' },
+    ],
+    quickInfo: [
+      { label: 'Duration', value: '1 Week' },
+      { label: 'Project Type', value: 'UI Clone' },
+      { label: 'Client', value: 'Personal' },
+      { label: 'Team Size', value: '1 Developer' },
+      { label: 'Platform', value: 'Web' },
+      { label: 'Responsive', value: '100%' },
+      { label: 'Status', value: 'Completed' },
+    ],
+    gallery: [
+      { title: 'Hero Section', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80' },
+      { title: 'Movie Slider', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80' },
+      { title: 'Mobile View', res: '375 x 812', img: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80' }
+    ],
+    story: [
+      { title: 'Analysis', desc: 'Analyzing Netflix UI components' },
+      { title: 'Setup', desc: 'Project setup with HTML and CSS' },
+      { title: 'Layout', desc: 'Building responsive flexbox layouts' },
+      { title: 'Styling', desc: 'Applying custom styling and animations' },
+      { title: 'Interactivity', desc: 'Adding JavaScript for sliders' },
+      { title: 'Refining', desc: 'Polishing mobile responsiveness' }
+    ],
+    features: [
+      { title: 'Responsive Hero Banner', desc: 'A full-width hero section that adapts to all screen sizes with smooth gradient overlays.', stats: [{ val: '100%', label: 'Width' }, { val: 'HD', label: 'Images' }, { val: 'Dynamic', label: 'Sizing' }] },
+      { title: 'Movie Carousels', desc: 'Horizontal scrolling movie rows with hover scale effects.', stats: [{ val: 'Smooth', label: 'Scroll' }, { val: 'Hover', label: 'Effects' }, { val: 'Touch', label: 'Support' }] },
+      { title: 'CSS Grid & Flexbox', desc: 'Modern layout techniques used for perfect alignment without heavy frameworks.', stats: [{ val: 'Flex', label: 'Layout' }, { val: 'Grid', label: 'System' }, { val: 'Vanilla', label: 'CSS' }] }
+    ],
+    techNodes: [
+      { icon: 'H5', title: 'HTML5', desc: 'Semantic Markup', color: '#E44D26' },
+      { icon: 'C3', title: 'CSS3', desc: 'Custom Styles & Flexbox', color: '#264DE4' },
+      { icon: 'JS', title: 'JavaScript', desc: 'DOM Manipulation', color: '#F7DF1E' }
+    ],
+    challenges: [
+      'Replicating complex hover states',
+      'Building a touch-friendly carousel without libraries',
+      'Maintaining responsiveness across all device sizes'
+    ],
+    solutions: [
+      'Used CSS transitions and transforms',
+      'Implemented custom vanilla JS scroll logic',
+      'Utilized CSS media queries and relative units'
+    ],
+    metrics: [
+      { val: '3', label: 'Pages' },
+      { val: '100%', label: 'Responsive' },
+      { val: '99', label: 'Performance' },
+      { val: '100', label: 'Accessibility' }
+    ],
+    prevProject: { slug: 'smart-inventory', title: 'Smart Inventory' },
+    nextProject: { slug: 'amazon-clone', title: 'Amazon Clone' },
+  },
+
+  'amazon-clone': {
+    title: 'Amazon Clone',
+    description: 'Responsive blog and e-commerce UI inspired by Amazon\'s design principles.',
+    heroImage: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80',
+    meta: { category: 'Frontend Web App', year: '2023', status: 'Completed', role: 'Frontend Developer' },
+    stats: [
+      { value: '100%', label: 'Responsive' },
+      { value: 'Modern', label: 'Design' },
+      { value: 'E-commerce', label: 'UI' },
+      { value: 'Fast', label: 'Load' },
+    ],
+    quickInfo: [
+      { label: 'Duration', value: '2 Weeks' },
+      { label: 'Project Type', value: 'UI Clone' },
+      { label: 'Client', value: 'Personal' },
+      { label: 'Team Size', value: '1 Developer' },
+      { label: 'Platform', value: 'Web' },
+      { label: 'Responsive', value: '100%' },
+      { label: 'Status', value: 'Completed' },
+    ],
+    gallery: [
+      { title: 'Home Page', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80' },
+      { title: 'Product View', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80' },
+      { title: 'Cart Page', res: '375 x 812', img: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80' }
+    ],
+    story: [
+      { title: 'Planning', desc: 'Analyzing e-commerce flows' },
+      { title: 'Design', desc: 'Wireframing components' },
+      { title: 'Frontend', desc: 'Building responsive pages' },
+      { title: 'Logic', desc: 'Adding cart functionality mock' },
+      { title: 'Optimization', desc: 'Improving performance' },
+      { title: 'Deployment', desc: 'Hosting on Vercel' }
+    ],
+    features: [
+      { title: 'Product Listing', desc: 'Dynamic product grid with responsive columns.', stats: [{ val: 'Grid', label: 'Layout' }, { val: 'Hover', label: 'Effects' }, { val: 'Images', label: 'Lazy Load' }] },
+      { title: 'Shopping Cart UI', desc: 'Interactive cart interface to mock adding and removing items.', stats: [{ val: 'Dynamic', label: 'State' }, { val: 'Local', label: 'Storage' }, { val: 'Smooth', label: 'Updates' }] }
+    ],
+    techNodes: [
+      { icon: 'H5', title: 'HTML5', desc: 'Semantic Markup', color: '#E44D26' },
+      { icon: 'C3', title: 'CSS3', desc: 'Custom Styles', color: '#264DE4' },
+      { icon: 'JS', title: 'JavaScript', desc: 'Logic', color: '#F7DF1E' }
+    ],
+    challenges: [
+      'Complex navigation header',
+      'Responsive product grid'
+    ],
+    solutions: [
+      'CSS Flexbox for header layout',
+      'CSS Grid for products'
+    ],
+    metrics: [
+      { val: '4', label: 'Pages' },
+      { val: '100%', label: 'Responsive' },
+      { val: 'Fast', label: 'Performance' }
+    ],
+    prevProject: { slug: 'netflix-clone', title: 'Netflix Clone' },
+    nextProject: { slug: 'ecommerce-platform', title: 'E-commerce App' },
+  },
+
+  'ecommerce-platform': {
+    title: 'E-commerce App',
+    description: 'A modern e-commerce platform with a mobile-first design, campus deals, and product feeds.',
+    heroImage: '/images/ecommerce.png',
+    meta: { category: 'Web Application', year: '2024', status: 'Completed', role: 'Full Stack Developer' },
+    stats: [
+      { value: 'Mobile', label: 'First' },
+      { value: 'Modern', label: 'UI' },
+      { value: 'Vue.js', label: 'Frontend' },
+      { value: 'Fast', label: 'Speed' },
+    ],
+    quickInfo: [
+      { label: 'Duration', value: '4 Weeks' },
+      { label: 'Project Type', value: 'Web Application' },
+      { label: 'Client', value: 'Personal' },
+      { label: 'Team Size', value: '1 Developer' },
+      { label: 'Platform', value: 'Web/Mobile' },
+      { label: 'Responsive', value: '100%' },
+      { label: 'Status', value: 'Completed' },
+    ],
+    gallery: [
+      { title: 'Home Feed', res: '1080 x 1920', img: '/images/ecommerce.png' },
+      { title: 'Categories', res: '1080 x 1920', img: '/images/ecommerce.png' },
+      { title: 'Product View', res: '1080 x 1920', img: '/images/ecommerce.png' }
+    ],
+    story: [
+      { title: 'Concept', desc: 'Designing a mobile-first marketplace' },
+      { title: 'UI/UX', desc: 'Creating smooth app-like interfaces' },
+      { title: 'Frontend', desc: 'Building with Vue and Tailwind' },
+      { title: 'Backend', desc: 'Developing Node.js API' },
+      { title: 'Integration', desc: 'Connecting frontend to API' },
+      { title: 'Launch', desc: 'Deploying the application' }
+    ],
+    features: [
+      { title: 'Mobile-First Layout', desc: 'App-like experience on the web with bottom navigation and smooth transitions.', stats: [{ val: 'App-like', label: 'Feel' }, { val: 'Touch', label: 'Friendly' }, { val: 'Fast', label: 'Load' }] },
+      { title: 'Product Feed', desc: 'Infinite scrolling product feed with categories and deals.', stats: [{ val: 'Infinite', label: 'Scroll' }, { val: 'Filter', label: 'System' }, { val: 'Deals', label: 'Highlight' }] },
+      { title: 'User Stories', desc: 'Social-media style user stories for showcasing products.', stats: [{ val: 'Stories', label: 'UI' }, { val: 'Engaging', label: 'Content' }, { val: 'Social', label: 'Feel' }] }
+    ],
+    techNodes: [
+      { icon: 'V', title: 'Frontend', desc: 'Vue.js', color: '#4FC08D' },
+      { icon: 'Tw', title: 'Styling', desc: 'Tailwind CSS', color: '#06B6D4' },
+      { icon: 'N', title: 'Backend', desc: 'Node.js', color: '#339933' }
+    ],
+    challenges: [
+      'Creating an app-like feel in browser',
+      'Optimizing images for mobile',
+      'State management for cart'
+    ],
+    solutions: [
+      'Used Tailwind utilities for mobile layouts',
+      'Lazy loading and image compression',
+      'Pinia for state management'
+    ],
+    metrics: [
+      { val: 'App-like', label: 'Experience' },
+      { val: '100%', label: 'Responsive' },
+      { val: 'Vue 3', label: 'Composition' }
+    ],
+    prevProject: { slug: 'amazon-clone', title: 'Amazon Clone' },
+    nextProject: { slug: 'work-1', title: 'Online Exam System' },
   },
 }
 

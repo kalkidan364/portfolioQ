@@ -43,7 +43,7 @@
               <img 
                 :src="currentProject.image" 
                 :alt="currentProject.title"
-                class="w-full h-full object-cover object-center"
+                class="w-full h-full object-cover object-top"
               />
               <!-- Overlay for text readability -->
               <div class="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#111]/95 pointer-events-none"></div>
@@ -260,6 +260,60 @@ const projects = ref([
       { name: 'Node.js', icon: 'N',  color: '#339933' },
       { name: 'Tailwind',icon: 'Tw', color: '#06B6D4' }
     ]
+  },
+  {
+    slug: 'netflix-clone',
+    title: 'Netflix Clone',
+    subtitle: 'Frontend UI Clone',
+    description: 'A responsive Netflix UI clone built to demonstrate modern frontend styling and layout techniques.',
+    image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80',
+    stats: [
+      { value: '100%', label: 'Responsive' },
+      { value: 'Custom', label: 'UI' }
+    ],
+    liveDemo: '#',
+    github: '#',
+    tech: [
+      { name: 'HTML5', icon: 'H5', color: '#E44D26' },
+      { name: 'CSS3', icon: 'C3', color: '#264DE4' },
+      { name: 'JavaScript', icon: 'JS', color: '#F7DF1E' }
+    ]
+  },
+  {
+    slug: 'amazon-clone',
+    title: 'Amazon Clone',
+    subtitle: 'Blog & Store UI',
+    description: 'Responsive blog and e-commerce UI inspired by Amazon\'s design principles.',
+    image: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80',
+    stats: [
+      { value: '100%', label: 'Responsive' },
+      { value: 'Modern', label: 'Design' }
+    ],
+    liveDemo: '#',
+    github: '#',
+    tech: [
+      { name: 'HTML5', icon: 'H5', color: '#E44D26' },
+      { name: 'CSS3', icon: 'C3', color: '#264DE4' },
+      { name: 'JavaScript', icon: 'JS', color: '#F7DF1E' }
+    ]
+  },
+  {
+    slug: 'ecommerce-platform',
+    title: 'E-commerce App',
+    subtitle: 'Mobile First Marketplace',
+    description: 'A modern e-commerce platform with a mobile-first design, campus deals, and product feeds.',
+    image: '/images/ecommerce.png',
+    stats: [
+      { value: 'Mobile', label: 'First' },
+      { value: 'Modern', label: 'UI' }
+    ],
+    liveDemo: '#',
+    github: '#',
+    tech: [
+      { name: 'Vue.js', icon: 'V', color: '#4FC08D' },
+      { name: 'Tailwind', icon: 'Tw', color: '#06B6D4' },
+      { name: 'Node.js', icon: 'N', color: '#339933' }
+    ]
   }
 ])
 
@@ -279,7 +333,7 @@ const filters = ref([
   { key: 'all',        label: 'All Projects',      icon: '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"/></svg>' },
   { key: 'web',        label: 'Web Applications',  icon: '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>' },
   { key: 'mgmt',       label: 'Management Systems', icon: '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8"/></svg>' },
-  { key: 'frontend',   label: 'Frontend Only',     icon: '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>' }
+  { key: 'business',   label: 'Business Applications', icon: '<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>' }
 ])
 
 // ─── Grid project cards ─────────────────────────────────────────────
@@ -301,7 +355,7 @@ const allCards = ref([
     num: '03', category: 'Website', filterKey: 'web', slug: 'apollo-logistics',
     title: 'Apollo Logistics Website',
     description: 'Professional logistics website showcasing services, tracking, and company info.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?w=400&q=80',
+    image: '/images/apollo.jpg',
     techIcons: [
       { label: 'H5', color: '#E44D26' },
       { label: 'C3', color: '#264DE4' },
@@ -310,22 +364,21 @@ const allCards = ref([
     ]
   },
   {
-    num: '04', category: 'Management System', filterKey: 'mgmt', slug: 'smart-inventory',
-    title: 'Smart Inventory & Sales System',
-    description: 'Inventory and sales management system for Qarem Made Company to manage operations.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80',
+    num: '04', category: 'Web Application', filterKey: 'web', slug: 'onchaintrade2',
+    title: 'Onchaintrade2',
+    description: 'The most advanced cryptocurrency terminal with institutional-grade execution.',
+    image: '/images/onchaintrade2.png',
     techIcons: [
-      { label: 'L',  color: '#FF2D20' },
       { label: 'V',  color: '#4FC08D' },
-      { label: 'JS', color: '#F7DF1E' },
+      { label: 'N',  color: '#339933' },
       { label: 'Tw', color: '#06B6D4' }
     ]
   },
   {
-    num: '05', category: 'Frontend Only', filterKey: 'frontend', slug: 'amazon-clone',
-    title: 'Blog Website (Amazon Clone)',
-    description: 'Responsive blog website inspired by Amazon\'s design principles built using frontend technologies.',
-    image: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=400&q=80',
+    num: '05', category: 'Business Application', filterKey: 'business', slug: 'netflix-clone',
+    title: 'Netflix Clone',
+    description: 'A responsive Netflix UI clone built to demonstrate modern frontend styling and layout techniques.',
+    image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=1200&q=80',
     techIcons: [
       { label: 'H5', color: '#E44D26' },
       { label: 'C3', color: '#264DE4' },
@@ -333,10 +386,10 @@ const allCards = ref([
     ]
   },
   {
-    num: '06', category: 'Frontend Only', filterKey: 'frontend', slug: 'netflix-clone',
-    title: 'Netflix Website Clone',
-    description: 'A Netflix UI clone built using HTML, CSS, and JavaScript with fully responsive design.',
-    image: 'https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&q=80',
+    num: '06', category: 'Business Application', filterKey: 'business', slug: 'amazon-clone',
+    title: 'Amazon Clone',
+    description: 'Responsive blog and e-commerce UI inspired by Amazon\'s design principles.',
+    image: 'https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?w=1200&q=80',
     techIcons: [
       { label: 'H5', color: '#E44D26' },
       { label: 'C3', color: '#264DE4' },
