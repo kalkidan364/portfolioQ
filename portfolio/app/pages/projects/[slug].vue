@@ -295,15 +295,21 @@
               <div class="absolute left-1/2 top-4 bottom-4 -translate-x-1/2 w-px bg-white/10 border-r border-dashed border-[#D4AF37]/30"></div>
 
               <div v-for="(node, i) in techNodes" :key="i" class="relative z-10 flex flex-col items-center mb-6 last:mb-0">
-                <div class="w-full bg-[#111] border border-white/10 rounded-xl p-3 flex items-center gap-3">
-                  <div class="w-8 h-8 rounded-lg bg-black border border-white/5 flex items-center justify-center text-[10px] font-black" :style="{color: node.color}">
-                    {{ node.icon }}
+                <component :is="node.link ? 'a' : 'div'" :href="node.link" :target="node.link ? '_blank' : undefined" :rel="node.link ? 'noopener noreferrer' : undefined"
+                  class="w-full bg-[#111] border border-white/10 rounded-xl p-3 flex items-center gap-3 transition-all"
+                  :class="node.link ? 'hover:border-[#D4AF37]/50 hover:bg-white/[0.04] group cursor-pointer' : ''">
+                  <div class="w-8 h-8 rounded-lg bg-black border border-white/5 flex items-center justify-center text-[10px] font-black shrink-0 overflow-hidden" :style="{color: node.color}">
+                    <img v-if="node.logo" :src="node.logo" :alt="node.desc" class="w-6 h-6 object-contain" />
+                    <span v-else>{{ node.icon }}</span>
                   </div>
-                  <div>
-                    <h4 class="text-white text-[11px] font-bold">{{ node.title }}</h4>
-                    <p class="text-gray-500 text-[9px]">{{ node.desc }}</p>
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center justify-between">
+                      <h4 class="text-white text-[11px] font-bold truncate">{{ node.title }}</h4>
+                      <svg v-if="node.link" class="w-3 h-3 text-gray-500 group-hover:text-[#D4AF37] transition-colors shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                    </div>
+                    <p class="text-gray-500 text-[9px] truncate group-hover:text-gray-300 transition-colors">{{ node.desc }}</p>
                   </div>
-                </div>
+                </component>
                 <!-- Connector arrow down (if not last) -->
                 <div v-if="i < techNodes.length - 1" class="absolute -bottom-5 text-[#D4AF37]/50">
                   <svg class="w-3 h-3 rotate-90" fill="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
@@ -383,24 +389,44 @@
         ══════════════════════════════════════ -->
         <section class="grid grid-cols-1 lg:grid-cols-[1fr_360px_240px] gap-6 mb-6">
           
-          <!-- DEVELOPMENT JOURNEY (Horizontal Timeline) -->
-          <div class="border border-white/5 bg-[#0d0d0d] rounded-2xl p-6 flex flex-col justify-center">
-            <div class="flex items-center gap-2 mb-10">
-              <div class="w-5 h-5 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37]"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
-              <h3 class="text-[#D4AF37] text-xs font-bold tracking-widest uppercase">DEVELOPMENT JOURNEY</h3>
+          <!-- DEVELOPMENT JOURNEY (Interactive Milestones) -->
+          <div class="border border-white/5 bg-[#0d0d0d] rounded-2xl p-6 flex flex-col justify-between">
+            <div class="flex items-center justify-between mb-4">
+              <div class="flex items-center gap-2">
+                <div class="w-5 h-5 rounded-md bg-[#D4AF37]/10 border border-[#D4AF37]/30 flex items-center justify-center text-[#D4AF37]"><svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+                <h3 class="text-[#D4AF37] text-xs font-bold tracking-widest uppercase">DEVELOPMENT JOURNEY</h3>
+              </div>
+              <span class="text-[9px] text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-2 py-0.5 rounded font-mono uppercase tracking-wider">Phase {{ activeJourneyIndex + 1 }} / {{ currentJourneySteps.length }}</span>
+            </div>
+
+            <!-- Active Milestone Preview -->
+            <div class="bg-[#111] border border-white/10 rounded-xl p-4 mb-4 flex-1 flex flex-col justify-between transition-all duration-300">
+              <div>
+                <div class="flex items-center gap-2 mb-1.5">
+                  <span class="text-[10px] text-[#D4AF37] font-mono font-bold">0{{ activeJourneyIndex + 1 }} //</span>
+                  <h4 class="text-white text-xs font-bold">{{ activeJourneyStep?.title }}</h4>
+                </div>
+                <p class="text-gray-400 text-[10px] leading-relaxed mb-3 line-clamp-3">{{ activeJourneyStep?.desc }}</p>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <span v-for="tag in activeJourneyStep?.tags" :key="tag" class="text-[8px] bg-white/5 text-gray-300 border border-white/10 px-2 py-0.5 rounded-full font-mono">
+                  {{ tag }}
+                </span>
+              </div>
             </div>
             
-            <div class="relative flex justify-between items-center px-4">
+            <!-- Horizontal Timeline Bar -->
+            <div class="relative flex justify-between items-center px-2 pt-1">
               <!-- Connecting line -->
-              <div class="absolute left-6 right-8 top-1/2 -translate-y-1/2 h-px bg-white/10 border-t border-dashed border-[#D4AF37]/30"></div>
+              <div class="absolute left-6 right-8 top-[20px] h-px bg-white/10 border-t border-dashed border-[#D4AF37]/30"></div>
               
-              <div v-for="(step, i) in journeySteps" :key="i" class="relative z-10 flex flex-col items-center group cursor-pointer">
-                <div class="w-8 h-8 rounded-full border border-white/20 bg-[#111] flex items-center justify-center mb-3 group-hover:border-[#D4AF37] group-hover:shadow-[0_0_10px_rgba(212,175,55,0.4)] transition-all"
-                  :class="i === journeySteps.length - 1 ? 'w-12 h-12 border-[#D4AF37] bg-[#D4AF37]/10' : ''">
-                  <span v-html="step.icon" class="w-3.5 h-3.5 text-gray-500 group-hover:text-[#D4AF37]" :class="i === journeySteps.length - 1 ? 'text-[#D4AF37] w-5 h-5' : ''"></span>
+              <button v-for="(step, i) in currentJourneySteps" :key="i" @click="activeJourneyIndex = i" class="relative z-10 flex flex-col items-center group cursor-pointer focus:outline-none transition-transform hover:scale-105">
+                <div class="w-8 h-8 rounded-full border bg-[#111] flex items-center justify-center mb-1.5 transition-all"
+                  :class="i === activeJourneyIndex ? 'border-[#D4AF37] bg-[#D4AF37]/20 shadow-[0_0_12px_rgba(212,175,55,0.4)] text-[#D4AF37]' : 'border-white/20 text-gray-500 hover:border-white/50 hover:text-white'">
+                  <span v-html="step.icon" class="w-3.5 h-3.5 transition-colors"></span>
                 </div>
-                <p class="text-[9px] text-gray-500 uppercase font-medium group-hover:text-white transition-colors" :class="i === journeySteps.length - 1 ? 'text-[#D4AF37]' : ''">{{ step.label }}</p>
-              </div>
+                <p class="text-[8px] uppercase font-medium transition-colors" :class="i === activeJourneyIndex ? 'text-[#D4AF37] font-bold' : 'text-gray-500 group-hover:text-gray-300'">{{ step.label }}</p>
+              </button>
             </div>
           </div>
 
@@ -566,12 +592,56 @@ const projectsDB: Record<string, any> = {
       { title: 'Super Admin Analytics Dashboard', res: '1920 x 1080', img: '/images/exam-gallery-5.png' },
     ],
     story: [
-      { title: 'Requirements', desc: 'Gathering business workflows and management needs from stakeholders' },
-      { title: 'System Design', desc: 'Designing modular architecture with role-based access control' },
-      { title: 'Database Schema', desc: 'Building relational schema for tasks, users, teams and reports' },
-      { title: 'Development', desc: 'Full stack development with Vue.js frontend and Laravel backend' },
-      { title: 'Testing', desc: 'Unit testing, integration testing, and UAT with real users' },
-      { title: 'Deployment', desc: 'Production deployment with CI/CD pipeline and monitoring' },
+      { title: 'Requirements', desc: 'Gathering academic workflows, timed testing rules, and grading policies from university educators' },
+      { title: 'System Design', desc: 'Designing modular microservices with multi-role RBAC, question banks, and live session tracking' },
+      { title: 'Database Schema', desc: 'Building relational schema for exams, digital questions, student submissions, and audit logs' },
+      { title: 'Development', desc: 'Full stack development with Vue.js 3 frontend and Laravel 10 REST API exam engine' },
+      { title: 'Testing', desc: 'Simulated concurrency stress testing with 1,000+ examinees, auto-submit validation, and UAT' },
+      { title: 'Deployment', desc: 'Production deployment on Yegara Host with SSL, LiteSpeed caching, and 24/7 active logs' },
+    ],
+    journey: [
+      {
+        label: 'Idea',
+        title: 'Academic Needs & Digital Exam Concept',
+        desc: 'Formulated requirements to replace paper exams with computerized timed testing, automated score calculation, and centralized question management.',
+        tags: ['Academic Workflow', 'Digital Testing', 'Scope Definition'],
+      },
+      {
+        label: 'Research',
+        title: 'Pedagogical Standards & Anti-Cheat Analysis',
+        desc: 'Researched university evaluation criteria, multi-tenant department security, and anti-cheating techniques such as browser blur audits and window focus checks.',
+        tags: ['Academic Integrity', 'Multi-Tenant', 'Security Audit'],
+      },
+      {
+        label: 'Wireframe',
+        title: 'System Architecture & Schema Prototyping',
+        desc: 'Designed interactive student exam cockpits, instructor question builders, and relational database schema for exams, digital questions, and active logs.',
+        tags: ['Database Schema', 'UX Flows', 'RBAC Blueprint'],
+      },
+      {
+        label: 'UI Design',
+        title: 'Distraction-Free Exam Interface',
+        desc: 'Created an ergonomic examination cockpit with high-contrast countdown timers, question navigation palettes, flag markers, and responsive multi-device layouts.',
+        tags: ['Exam Viewport', 'Dark UI', 'Countdown Timer'],
+      },
+      {
+        label: 'Development',
+        title: 'Vue 3 & Laravel REST Engine',
+        desc: 'Engineered automated grading algorithms, question randomization, real-time timer sync via WebSockets, and granular Spatie RBAC portals for students and teachers.',
+        tags: ['Vue.js 3', 'Laravel 10', 'WebSockets', 'Auto-Grading'],
+      },
+      {
+        label: 'Testing',
+        title: 'Concurrency Stress Testing & QA',
+        desc: 'Executed simulated high-concurrency stress tests for 1,000+ simultaneous student submissions, timer synchronization verification, and auto-submit safety checks.',
+        tags: ['Load Testing', 'Concurrency QA', 'Edge Cases'],
+      },
+      {
+        label: 'Launch',
+        title: 'Production Deployment on Yegara Host',
+        desc: 'Deployed on Yegara Host cloud infrastructure with SSL certificates, LiteSpeed caching, Redis session handling, automated daily backups, and live active logs.',
+        tags: ['Yegara Host', 'LiteSpeed', 'SSL', 'Live Active Logs'],
+      },
     ],
     features: [
       { title: 'Exam Management', desc: 'Create, schedule, configure exam duration, set passing criteria, and manage digital question banks with automated grading.', stats: [{ val: '18+', label: 'Exams' }, { val: '2', label: 'Active Now' }, { val: '100%', label: 'Automated' }], img: '/images/feature-exam-mgmt.png' },
@@ -586,31 +656,32 @@ const projectsDB: Record<string, any> = {
       { icon: 'V', title: 'Frontend', desc: 'Vue.js 3 + Tailwind CSS', color: '#4FC08D' },
       { icon: 'L', title: 'Backend', desc: 'Laravel 10 + PHP 8', color: '#FF2D20' },
       { icon: 'My', title: 'Database', desc: 'MySQL + Redis', color: '#4479A1' },
-      { icon: 'D', title: 'Deployment', desc: 'Docker + Nginx', color: '#2496ED' },
+      { icon: 'Y', title: 'Deployment', desc: 'Yegara Host', color: '#FFD700', logo: '/images/yegara-icon.png', link: 'https://yegara.com/' },
     ],
     challenges: [
-      'Complex role-based permission management',
-      'Real-time task updates across multiple users',
-      'Handling concurrent data modifications',
-      'Generating dynamic reports from complex queries',
-      'Optimizing dashboard load with large datasets',
+      'Real-time timer sync & auto-submission across 1,000+ concurrent examinees',
+      'Preventing academic dishonesty & tracking student browser window defocus',
+      'Handling simultaneous exam submissions with instant automated grading',
+      'Granular role-based portals for Students, Instructors, Heads & Super Admins',
+      'Generating dynamic student performance transcripts & grade distribution curves',
     ],
     solutions: [
-      'Spatie Laravel Permission for granular RBAC',
-      'WebSocket integration for live updates',
-      'Optimistic locking and queue-based processing',
-      'Laravel Excel with cached query builders',
-      'Redis caching and pagination strategies',
+      'WebSocket server-synchronized countdown timers immune to client-side manipulation',
+      'Browser blur event listeners, fullscreen enforcement & real-time active audit logs',
+      'Optimistic locking, Redis background queue workers & atomic database transactions',
+      'Spatie Laravel Permission with custom multi-guard authentication & JWT tokens',
+      'Laravel Excel & DomPDF with background query caching for instant report card generation',
     ],
     metrics: [
-      { val: '12+', label: 'Modules' },
-      { val: '1K+', label: 'Users' },
-      { val: '500+', label: 'Daily Tasks' },
-      { val: '50+', label: 'Reports' },
-      { val: '99%', label: 'Efficiency' },
+      { val: '14+', label: 'Modules' },
+      { val: '1.2K+', label: 'Students' },
+      { val: '500+', label: 'Questions' },
+      { val: '18+', label: 'Live Exams' },
+      { val: '100%', label: 'Auto Graded' },
+      { val: '99.9%', label: 'Uptime' },
+      { val: '32+', label: 'DB Tables' },
+      { val: '24/7', label: 'Active Logs' },
       { val: '100%', label: 'Responsive' },
-      { val: '30+', label: 'DB Tables' },
-      { val: '24/7', label: 'Monitoring' },
     ],
     prevProject: { slug: 'netflix-clone', title: 'Netflix Clone' },
     nextProject: { slug: 'crypto-currency', title: 'Crypto Currency' },
@@ -664,7 +735,7 @@ const projectsDB: Record<string, any> = {
       { icon: 'V', title: 'Frontend', desc: 'Vue.js + Tailwind CSS', color: '#4FC08D' },
       { icon: 'L', title: 'Backend', desc: 'Laravel', color: '#FF2D20' },
       { icon: 'My', title: 'Database', desc: 'MySQL', color: '#4479A1' },
-      { icon: 'Y', title: 'Deployment', desc: 'Yegara Host', color: '#FFD700' },
+      { icon: 'Y', title: 'Deployment', desc: 'Yegara Host', color: '#FFD700', logo: '/images/yegara-icon.png', link: 'https://yegara.com/' },
     ],
     challenges: [
       'Real-time data synchronization',
@@ -1158,6 +1229,25 @@ const journeySteps = [
   { icon: '<svg fill="currentColor" viewBox="0 0 24 24"><path d="M19 13.586V10c0-3.217-2.185-5.927-5.145-6.742C13.562 2.52 12.846 2 12 2s-1.562.52-1.855 1.258C7.185 4.074 5 6.783 5 10v3.586l-1.707 1.707A.996.996 0 003 16v2a1 1 0 001 1h16a1 1 0 001-1v-2a.996.996 0 00-.293-.707L19 13.586zM12 22c1.311 0 2.407-.834 2.818-2H9.182C9.593 21.166 10.689 22 12 22z"/></svg>', label: 'Launch' },
 ]
 
+const activeJourneyIndex = ref(4)
+const currentJourneySteps = computed(() => {
+  const steps = projectData.value?.journey || [
+    { label: 'Idea', title: 'Requirements Definition', desc: 'Analyzing business rules, user workflows, and architectural boundaries.', tags: ['Requirements', 'Planning'] },
+    { label: 'Research', title: 'Tech Stack & Standards', desc: 'Evaluating database performance, security frameworks, and frontend responsiveness.', tags: ['Research', 'Stack'] },
+    { label: 'Wireframe', title: 'Flows & Database Schema', desc: 'Designing user journeys, data flow diagrams, and normalized schema models.', tags: ['Wireframes', 'Schema'] },
+    { label: 'UI Design', title: 'UI/UX Prototyping', desc: 'Building responsive component design system with high usability and clarity.', tags: ['UI/UX', 'Figma'] },
+    { label: 'Development', title: 'Full Stack Engineering', desc: 'Developing modular Vue 3 components, REST APIs, and database migrations.', tags: ['Frontend', 'Backend'] },
+    { label: 'Testing', title: 'QA & Security Testing', desc: 'Comprehensive unit tests, integration validation, and cross-device testing.', tags: ['QA', 'Security'] },
+    { label: 'Launch', title: 'Production Deployment', desc: 'Deploying to cloud server with SSL certificates, caching, and active monitoring.', tags: ['Production', 'Monitoring'] },
+  ]
+  return steps.map((s: any, i: number) => ({
+    ...s,
+    icon: journeySteps[i]?.icon || journeySteps[0].icon,
+    label: s.label || journeySteps[i]?.label || `Step ${i + 1}`,
+  }))
+})
+const activeJourneyStep = computed(() => currentJourneySteps.value[activeJourneyIndex.value] || currentJourneySteps.value[0])
+
 // ═══════════════════════════════════════════════════════════════
 // GALLERY 
 // ═══════════════════════════════════════════════════════════════
@@ -1200,6 +1290,7 @@ const closeModal = () => {
 watch(slug, () => {
   activeGalleryIndex.value = 0
   activeFeatureIndex.value = 0
+  activeJourneyIndex.value = 4
   isModalOpen.value = false
   window.scrollTo({ top: 0, behavior: 'smooth' })
 })
