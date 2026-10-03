@@ -529,18 +529,66 @@
         </section>
 
         <!-- Footer band -->
-        <footer class="border-t border-white/10 pt-8 pb-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div>
+        <footer class="border-t border-white/10 pt-8 pb-12 flex flex-col xl:flex-row items-center justify-between gap-6">
+          <div class="max-w-sm text-center xl:text-left">
             <h3 class="text-xl font-bold text-[#D4AF37] mb-1">Let's Build Something Amazing Together</h3>
-            <p class="text-gray-500 text-xs">I'm always open to discussing new opportunities and exciting projects.</p>
+            <p class="text-gray-400 text-xs">I'm always open to discussing new opportunities and exciting projects.</p>
           </div>
-          <div class="flex gap-4">
-            <button class="px-6 py-2.5 bg-[#D4AF37] text-black font-semibold text-xs rounded-lg hover:brightness-110 transition-all flex items-center gap-2">
+
+          <!-- Project Builders Section with Profile Photos -->
+          <div class="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 bg-[#141414] border border-white/10 rounded-2xl px-5 py-3 shadow-lg hover:border-[#D4AF37]/40 transition-all">
+            <div class="flex flex-col items-center sm:items-start">
+              <span class="text-[9px] uppercase tracking-widest text-[#D4AF37] font-bold">Project Builders</span>
+              <span class="text-xs font-semibold text-white">
+                {{ projectBuilders.length > 1 ? `${projectBuilders.length} Developers` : 'Lead Developer' }}
+              </span>
+            </div>
+
+            <!-- Divider -->
+            <div class="hidden sm:block h-8 w-px bg-white/10 mx-1"></div>
+
+            <!-- Builders list -->
+            <div class="flex items-center gap-4">
+              <div 
+                v-for="builder in projectBuilders" 
+                :key="builder.name" 
+                class="flex items-center gap-2.5 group"
+              >
+                <div class="relative">
+                  <div class="w-11 h-11 rounded-full border-2 border-[#D4AF37]/70 p-0.5 bg-[#1a1a1a] shadow-[0_0_15px_rgba(212,175,55,0.25)] group-hover:border-[#D4AF37] group-hover:scale-105 transition-all overflow-hidden flex items-center justify-center">
+                    <img 
+                      v-if="builder.avatar" 
+                      :src="builder.avatar" 
+                      :alt="builder.name"
+                      class="w-full h-full object-cover object-top rounded-full"
+                    />
+                    <div v-else class="w-full h-full rounded-full bg-gradient-to-br from-[#252525] to-[#141414] text-[#D4AF37] font-bold text-xs flex items-center justify-center">
+                      {{ builder.initials || builder.name.charAt(0) }}
+                    </div>
+                  </div>
+                  <!-- Status green dot -->
+                  <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-500 border-2 border-[#141414] rounded-full"></span>
+                </div>
+
+                <div class="flex flex-col">
+                  <span class="text-xs font-bold text-white group-hover:text-[#D4AF37] transition-colors leading-tight">
+                    {{ builder.name }}
+                  </span>
+                  <span class="text-[10px] text-gray-400 leading-tight">
+                    {{ builder.role }}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-3 shrink-0">
+            <NuxtLink to="/#contact" class="px-6 py-2.5 bg-[#D4AF37] hover:bg-[#e0bc46] text-black font-semibold text-xs rounded-lg transition-all flex items-center gap-2 shadow-md">
               Contact Me <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
-            </button>
-            <button class="px-6 py-2.5 border border-[#D4AF37]/50 text-[#D4AF37] font-semibold text-xs rounded-lg hover:bg-[#D4AF37]/10 transition-all flex items-center gap-2">
-              Download CV <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4-4m0 0l-4-4m4 4V4"/></svg>
-            </button>
+            </NuxtLink>
+            <a href="/cv.pdf" target="_blank" class="px-6 py-2.5 border border-[#D4AF37]/50 text-[#D4AF37] font-semibold text-xs rounded-lg hover:bg-[#D4AF37]/10 transition-all flex items-center gap-2">
+              Download CV <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            </a>
           </div>
         </footer>
 
@@ -613,10 +661,24 @@ const projectsDB: Record<string, any> = {
       { label: 'Duration', value: '4 Months' },
       { label: 'Project Type', value: 'Online Exam System' },
       { label: 'Client', value: 'Wollo University' },
-      { label: 'Team Size', value: '1 Developer' },
+      { label: 'Team Size', value: '2 Developers (Kalkidan & Fitsum)' },
       { label: 'Platform', value: 'Web' },
       { label: 'Responsive', value: '100%' },
       { label: 'Status', value: 'Completed' },
+    ],
+    builders: [
+      {
+        name: 'Kalkidan Mengistu',
+        role: 'Full Stack Developer',
+        avatar: '/images/kalkidan-builder.png',
+        initials: 'KM',
+      },
+      {
+        name: 'Fitsum',
+        role: 'Full Stack Developer',
+        avatar: '/images/fitsum-builder.png',
+        initials: 'F',
+      }
     ],
     gallery: [
       { title: 'Student Portal & Academic Dashboard', res: '1920 x 1080', img: '/images/exam-gallery-1.png' },
@@ -1216,6 +1278,19 @@ const projectsDB: Record<string, any> = {
 // COMPUTED DATA FROM SLUG
 // ═══════════════════════════════════════════════════════════════
 const projectData = computed(() => projectsDB[slug.value])
+
+const defaultBuilders = [
+  {
+    name: 'Kalkidan Mengistu',
+    role: 'Full Stack Developer',
+    avatar: '/images/kalkidan-builder.png',
+    initials: 'KM',
+  }
+]
+
+const projectBuilders = computed(() => {
+  return projectData.value?.builders || defaultBuilders
+})
 
 const quickInfo = computed(() => {
   if(!projectData.value) return []
