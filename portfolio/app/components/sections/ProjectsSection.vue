@@ -205,13 +205,13 @@ const projects = ref([
   {
     slug: 'work-1',
     title: 'Work.1',
-    subtitle: 'Management System',
-    description: 'A powerful management system that helps teams organize tasks, track progress, and improve productivity.',
-    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80',
+    subtitle: 'Online Exam System',
+    description: 'A comprehensive online exam system for managing assessments, tracking student progress, and grading automatically.',
+    image: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=900&q=80',
     stats: [
-      { value: '12+', label: 'Modules' },
-      { value: '1K+', label: 'Users' },
-      { value: '99%', label: 'Efficiency' }
+      { value: '500+', label: 'Exams' },
+      { value: '10K+', label: 'Students' },
+      { value: '100%', label: 'Reliability' }
     ],
     liveDemo: '#',
     github: '#',
