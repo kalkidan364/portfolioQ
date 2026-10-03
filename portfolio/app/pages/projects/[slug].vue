@@ -399,19 +399,53 @@
               <span class="text-[9px] text-[#D4AF37] bg-[#D4AF37]/10 border border-[#D4AF37]/30 px-2 py-0.5 rounded font-mono uppercase tracking-wider">Phase {{ activeJourneyIndex + 1 }} / {{ currentJourneySteps.length }}</span>
             </div>
 
-            <!-- Active Milestone Preview -->
-            <div class="bg-[#111] border border-white/10 rounded-xl p-4 mb-4 flex-1 flex flex-col justify-between transition-all duration-300">
-              <div>
-                <div class="flex items-center gap-2 mb-1.5">
-                  <span class="text-[10px] text-[#D4AF37] font-mono font-bold">0{{ activeJourneyIndex + 1 }} //</span>
-                  <h4 class="text-white text-xs font-bold">{{ activeJourneyStep?.title }}</h4>
-                </div>
-                <p class="text-gray-400 text-[10px] leading-relaxed mb-3 line-clamp-3">{{ activeJourneyStep?.desc }}</p>
+            <!-- Active Milestone Preview with Integrated Background Screenshot -->
+            <div class="relative overflow-hidden bg-[#111] border border-white/10 rounded-xl p-4 sm:p-5 mb-4 flex-1 flex flex-col justify-between group min-h-[220px]">
+              <!-- Integrated Background Image of the phase screenshot on the right -->
+              <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                <img :src="activeJourneyStep?.img || projectData.heroImage" 
+                     class="absolute right-0 top-0 h-full w-3/5 object-cover object-left-top opacity-30 group-hover:opacity-50 transition-all duration-700 group-hover:scale-105" />
+                <!-- Smooth gradient overlays for perfect readability -->
+                <div class="absolute inset-0 bg-gradient-to-r from-[#111] via-[#111]/90 to-transparent"></div>
+                <div class="absolute inset-0 bg-gradient-to-t from-[#111] via-transparent to-transparent"></div>
+                <div class="absolute inset-0 bg-black/20"></div>
               </div>
-              <div class="flex flex-wrap gap-1.5">
-                <span v-for="tag in activeJourneyStep?.tags" :key="tag" class="text-[8px] bg-white/5 text-gray-300 border border-white/10 px-2 py-0.5 rounded-full font-mono">
-                  {{ tag }}
-                </span>
+
+              <!-- Top Content (Phase Header & Title & Description) -->
+              <div class="relative z-10">
+                <div class="flex items-center justify-between gap-2 mb-2">
+                  <div class="flex items-center gap-2">
+                    <span class="text-[10px] text-[#D4AF37] font-mono font-bold">0{{ activeJourneyIndex + 1 }} //</span>
+                    <h4 class="text-white text-xs sm:text-sm font-bold tracking-tight">{{ activeJourneyStep?.title }}</h4>
+                  </div>
+                  <span v-if="activeJourneyStep?.milestone" class="text-[8px] sm:text-[9px] px-2 py-0.5 rounded bg-[#D4AF37]/10 text-[#D4AF37] border border-[#D4AF37]/30 font-mono tracking-wider shrink-0">
+                    {{ activeJourneyStep.milestone }}
+                  </span>
+                </div>
+                
+                <p class="text-gray-300 text-[10px] sm:text-[11px] leading-relaxed mb-3 max-w-[85%]">{{ activeJourneyStep?.desc }}</p>
+
+                <!-- Key Highlights / Deliverables -->
+                <div v-if="activeJourneyStep?.highlights?.length" class="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-3 max-w-[90%]">
+                  <div v-for="(hl, idx) in activeJourneyStep.highlights" :key="idx" 
+                       class="flex items-center gap-2 bg-black/60 border border-white/10 rounded-lg px-2.5 py-1.5 backdrop-blur-md">
+                    <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37] shrink-0"></span>
+                    <span class="text-[9px] sm:text-[10px] text-gray-200 font-medium truncate">{{ hl }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Row: Tags & Zoom Button -->
+              <div class="relative z-10 flex items-center justify-between pt-2 border-t border-white/5 mt-auto">
+                <div class="flex flex-wrap gap-1.5">
+                  <span v-for="tag in activeJourneyStep?.tags" :key="tag" class="text-[8px] bg-white/5 text-gray-300 border border-white/10 px-2 py-0.5 rounded-full font-mono">
+                    {{ tag }}
+                  </span>
+                </div>
+                <button v-if="activeJourneyStep?.img" @click="openModal(activeJourneyStep.img)" class="text-[9px] text-[#D4AF37] hover:text-white flex items-center gap-1 transition-colors px-2 py-1 rounded bg-black/40 hover:bg-white/10 border border-white/5 shrink-0">
+                  <svg class="w-2.5 h-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7"/></svg>
+                  Preview Screen
+                </button>
               </div>
             </div>
             
@@ -604,43 +638,64 @@ const projectsDB: Record<string, any> = {
         label: 'Idea',
         title: 'Academic Needs & Digital Exam Concept',
         desc: 'Formulated requirements to replace paper exams with computerized timed testing, automated score calculation, and centralized question management.',
+        highlights: ['Timed Exam Workflows', 'Centralized Question Bank'],
         tags: ['Academic Workflow', 'Digital Testing', 'Scope Definition'],
+        img: '/images/exam-gallery-1.png',
+        milestone: 'Architecture Blueprint',
       },
       {
         label: 'Research',
         title: 'Pedagogical Standards & Anti-Cheat Analysis',
         desc: 'Researched university evaluation criteria, multi-tenant department security, and anti-cheating techniques such as browser blur audits and window focus checks.',
+        highlights: ['Anti-Cheat Defocus Audit', 'Multi-Tenant RBAC Security'],
         tags: ['Academic Integrity', 'Multi-Tenant', 'Security Audit'],
+        img: '/images/feature-active-logs.png',
+        milestone: 'Security Standards',
       },
       {
         label: 'Wireframe',
         title: 'System Architecture & Schema Prototyping',
         desc: 'Designed interactive student exam cockpits, instructor question builders, and relational database schema for exams, digital questions, and active logs.',
+        highlights: ['Question Bank Schema', 'Student Viewport UX Flow'],
         tags: ['Database Schema', 'UX Flows', 'RBAC Blueprint'],
+        img: '/images/feature-role-base.png',
+        milestone: 'Schema Finalized',
       },
       {
         label: 'UI Design',
         title: 'Distraction-Free Exam Interface',
         desc: 'Created an ergonomic examination cockpit with high-contrast countdown timers, question navigation palettes, flag markers, and responsive multi-device layouts.',
+        highlights: ['High-Contrast Countdown', 'Distraction-Free Cockpit'],
         tags: ['Exam Viewport', 'Dark UI', 'Countdown Timer'],
+        img: '/images/online-exam-hero.png',
+        milestone: 'Design System',
       },
       {
         label: 'Development',
         title: 'Vue 3 & Laravel REST Engine',
         desc: 'Engineered automated grading algorithms, question randomization, real-time timer sync via WebSockets, and granular Spatie RBAC portals for students and teachers.',
+        highlights: ['WebSocket Timer Sync', 'Automated Grading Engine'],
         tags: ['Vue.js 3', 'Laravel 10', 'WebSockets', 'Auto-Grading'],
+        img: '/images/feature-exam-mgmt.png',
+        milestone: 'Core Engine Live',
       },
       {
         label: 'Testing',
         title: 'Concurrency Stress Testing & QA',
         desc: 'Executed simulated high-concurrency stress tests for 1,000+ simultaneous student submissions, timer synchronization verification, and auto-submit safety checks.',
+        highlights: ['1,000+ Concurrency Stress', 'Auto-Submit Safety Checks'],
         tags: ['Load Testing', 'Concurrency QA', 'Edge Cases'],
+        img: '/images/feature-reports.png',
+        milestone: 'Stress Test Passed',
       },
       {
         label: 'Launch',
         title: 'Production Deployment on Yegara Host',
         desc: 'Deployed on Yegara Host cloud infrastructure with SSL certificates, LiteSpeed caching, Redis session handling, automated daily backups, and live active logs.',
+        highlights: ['Yegara Host Cloud Server', '24/7 Real-Time Active Logs'],
         tags: ['Yegara Host', 'LiteSpeed', 'SSL', 'Live Active Logs'],
+        img: '/images/exam-gallery-5.png',
+        milestone: 'Live in Production',
       },
     ],
     features: [

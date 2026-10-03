@@ -113,54 +113,38 @@
              </Transition>
            </div>
 
-           <!-- GALAXY VISUAL -->
-           <div class="w-full lg:w-[46%] flex justify-center items-center py-8 relative overflow-hidden">
-             <div class="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px]">
-                <div class="absolute inset-4 sm:inset-6 border border-dashed border-gray-600/50 rounded-full animate-[spin_40s_linear_infinite]"></div>
-                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border border-[#D4AF37] bg-[#111] flex items-center justify-center z-10 shadow-[0_0_30px_rgba(212,175,55,0.15)]">
-                   <div class="text-[#D4AF37] text-2xl sm:text-3xl font-bold tracking-tighter">&lt;/&gt;</div>
+           <!-- GALAXY VISUAL (Dynamic Rotating Orbit integrated with active tab) -->
+           <div class="w-full lg:w-[46%] flex justify-center items-center py-6 relative">
+             <div class="relative w-[280px] h-[280px] sm:w-[320px] sm:h-[320px]">
+                <!-- Outer dashed orbit track -->
+                <div class="absolute inset-3 border border-dashed border-[#D4AF37]/25 rounded-full pointer-events-none"></div>
+
+                <!-- Center Category Hub (Stationary) -->
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full border border-[#D4AF37] bg-[#111] flex flex-col items-center justify-center z-20 shadow-[0_0_35px_rgba(212,175,55,0.25)] transition-all duration-300">
+                   <div class="text-[#D4AF37] text-xl sm:text-2xl font-bold tracking-tighter leading-none" v-html="currentCategoryData.centerIcon"></div>
+                   <span class="text-[8px] uppercase tracking-wider text-gray-400 font-semibold mt-1">{{ currentCategoryData.centerLabel }}</span>
                 </div>
-                <!-- Vue.js -->
-                <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                   <div class="w-10 h-10 rounded-xl bg-[#161616] border border-white/5 flex items-center justify-center shadow-lg z-20">
-                      <img src="https://cdn.simpleicons.org/vuedotjs/41B883" class="w-5 h-5" alt="Vue.js"/>
+
+                <!-- Rotating Orbit Container -->
+                <div :key="activeTab" class="absolute inset-0 orbit-spin animate-[fadeIn_0.35s_ease-out]">
+                   <!-- Orbiting Skills Satellites -->
+                   <div v-for="(skill, i) in currentCategoryData.skills" :key="skill.name" 
+                        class="absolute -translate-x-1/2 -translate-y-1/2 transition-all duration-300 pointer-events-auto"
+                        :style="getOrbitStyle(i, currentCategoryData.skills.length)">
+                      <div class="orbit-counter-spin flex flex-col items-center gap-1 group cursor-pointer">
+                         <div class="w-10 h-10 rounded-xl bg-[#161616] border border-white/10 group-hover:border-[#D4AF37]/60 group-hover:shadow-[0_0_15px_rgba(212,175,55,0.35)] flex items-center justify-center shadow-lg transition-all duration-300 group-hover:scale-110 p-2">
+                            <img v-if="skill.icon" :src="skill.icon" class="w-5 h-5 object-contain" :alt="skill.name"/>
+                            <div v-else-if="skill.badge" class="w-5 h-5 flex items-center justify-center rounded-sm font-bold text-[10px] text-black" :style="{ backgroundColor: skill.color || '#F7DF1E' }">
+                               {{ skill.badge }}
+                            </div>
+                            <span v-else-if="skill.svg" v-html="skill.svg" class="w-5 h-5 flex items-center justify-center"></span>
+                            <span v-else class="text-xs font-bold text-[#D4AF37]">{{ skill.name.charAt(0) }}</span>
+                         </div>
+                         <span class="text-[9px] font-medium text-white bg-[#111]/90 border border-white/10 px-2 py-0.5 rounded-full whitespace-nowrap group-hover:border-[#D4AF37]/50 transition-colors shadow-md">
+                            {{ skill.name }}
+                         </span>
+                      </div>
                    </div>
-                   <span class="text-[9px] font-medium text-white bg-[#111] px-1.5 py-0.5 rounded-full">Vue.js</span>
-                </div>
-                <!-- JavaScript -->
-                <div class="absolute top-[18%] right-[5%] translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                   <div class="w-10 h-10 rounded-xl bg-[#161616] border border-white/5 flex items-center justify-center shadow-lg z-20">
-                      <div class="w-5 h-5 flex items-center justify-center bg-yellow-400 rounded-sm font-bold text-[10px] text-black">JS</div>
-                   </div>
-                   <span class="text-[9px] font-medium text-white bg-[#111] px-1.5 py-0.5 rounded-full">JavaScript</span>
-                </div>
-                <!-- CSS3 -->
-                <div class="absolute bottom-[18%] right-[5%] translate-x-1/2 translate-y-1/2 flex flex-col items-center gap-1.5">
-                   <div class="w-10 h-10 rounded-xl bg-[#161616] border border-white/5 flex items-center justify-center shadow-lg z-20">
-                      <img src="https://cdn.simpleicons.org/css3/1572B6" class="w-5 h-5" alt="CSS3"/>
-                   </div>
-                   <span class="text-[9px] font-medium text-white bg-[#111] px-1.5 py-0.5 rounded-full">CSS3</span>
-                </div>
-                <!-- Tailwind CSS -->
-                <div class="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex flex-col items-center gap-1.5">
-                   <div class="w-10 h-10 rounded-xl bg-[#161616] border border-white/5 flex items-center justify-center shadow-lg z-20">
-                      <img src="https://cdn.simpleicons.org/tailwindcss/06B6D4" class="w-5 h-5" alt="Tailwind CSS"/>
-                   </div>
-                   <span class="text-[9px] font-medium text-white bg-[#111] px-1.5 py-0.5 rounded-full">Tailwind CSS</span>
-                </div>
-                <!-- HTML5 -->
-                <div class="absolute bottom-[18%] left-[5%] -translate-x-1/2 translate-y-1/2 flex flex-col items-center gap-1.5">
-                   <div class="w-10 h-10 rounded-xl bg-[#161616] border border-white/5 flex items-center justify-center shadow-lg z-20">
-                      <img src="https://cdn.simpleicons.org/html5/E34F26" class="w-5 h-5" alt="HTML5"/>
-                   </div>
-                   <span class="text-[9px] font-medium text-white bg-[#111] px-1.5 py-0.5 rounded-full">HTML5</span>
-                </div>
-                <!-- Laravel -->
-                <div class="absolute top-[18%] left-[5%] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
-                   <div class="w-10 h-10 rounded-xl bg-[#161616] border border-white/5 flex items-center justify-center shadow-lg z-20">
-                      <img src="https://cdn.simpleicons.org/laravel/FF2D20" class="w-5 h-5" alt="Laravel"/>
-                   </div>
-                   <span class="text-[9px] font-medium text-white bg-[#111] px-1.5 py-0.5 rounded-full">Laravel</span>
                 </div>
              </div>
            </div>
@@ -185,7 +169,7 @@
            </div>
            <div class="bg-[#161616] rounded-xl p-5 border border-white/5 relative overflow-hidden group">
               <div class="flex items-center gap-3 mb-2">
-                 <img src="https://cdn.simpleicons.org/visualstudiocode/007ACC" class="w-5 h-5" alt="VS Code"/>
+                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" class="w-5 h-5" alt="VS Code"/>
                  <h4 class="text-xs font-bold text-white">VS Code</h4>
               </div>
               <p class="text-[10px] sm:text-xs text-gray-400 leading-relaxed">My primary code editor</p>
@@ -402,6 +386,93 @@ const skillContents: Record<string, { title: string; desc: string; items: string
 }
 
 const activeContent = computed(() => skillContents[activeTab.value])
+
+interface SkillNode {
+  name: string
+  icon?: string
+  svg?: string
+  badge?: string
+  color?: string
+}
+
+interface CategoryOrbit {
+  centerIcon: string
+  centerLabel: string
+  skills: SkillNode[]
+}
+
+const categoryOrbits: Record<string, CategoryOrbit> = {
+  frontend: {
+    centerIcon: '&lt;/&gt;',
+    centerLabel: 'Frontend',
+    skills: [
+      { name: 'Vue.js', icon: 'https://cdn.simpleicons.org/vuedotjs/41B883' },
+      { name: 'JavaScript', icon: 'https://cdn.simpleicons.org/javascript/F7DF1E' },
+      { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss/06B6D4' },
+      { name: 'HTML5', icon: 'https://cdn.simpleicons.org/html5/E34F26' },
+      { name: 'CSS3', icon: 'https://cdn.simpleicons.org/css/1572B6' },
+      { name: 'Nuxt', icon: 'https://cdn.simpleicons.org/nuxt/00DC82' },
+    ],
+  },
+  backend: {
+    centerIcon: '{ }',
+    centerLabel: 'Backend',
+    skills: [
+      { name: 'Laravel', icon: 'https://cdn.simpleicons.org/laravel/FF2D20' },
+      { name: 'PHP', icon: 'https://cdn.simpleicons.org/php/777BB4' },
+      { name: 'Node.js', icon: 'https://cdn.simpleicons.org/nodedotjs/339933' },
+      { name: 'Express', icon: 'https://cdn.simpleicons.org/express/FFFFFF' },
+      { name: 'REST APIs', svg: '<svg class="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>' },
+      { name: 'JWT Auth', svg: '<svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>' },
+    ],
+  },
+  database: {
+    centerIcon: 'DB',
+    centerLabel: 'Database',
+    skills: [
+      { name: 'MySQL', icon: 'https://cdn.simpleicons.org/mysql/4479A1' },
+      { name: 'PostgreSQL', icon: 'https://cdn.simpleicons.org/postgresql/4169E1' },
+      { name: 'Redis', icon: 'https://cdn.simpleicons.org/redis/DC382D' },
+      { name: 'MongoDB', icon: 'https://cdn.simpleicons.org/mongodb/47A248' },
+      { name: 'Eloquent ORM', svg: '<svg class="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/></svg>' },
+      { name: 'Schema Design', svg: '<svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>' },
+    ],
+  },
+  tools: {
+    centerIcon: 'Tools',
+    centerLabel: 'Platforms',
+    skills: [
+      { name: 'Git & GitHub', icon: 'https://cdn.simpleicons.org/git/F05032' },
+      { name: 'VS Code', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+      { name: 'Figma', icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
+      { name: 'Postman', icon: 'https://cdn.simpleicons.org/postman/FF6C37' },
+      { name: 'Docker', icon: 'https://cdn.simpleicons.org/docker/2496ED' },
+      { name: 'Yegara Host', icon: '/images/yegara-icon.png' },
+    ],
+  },
+  other: {
+    centerIcon: '★',
+    centerLabel: 'Skills',
+    skills: [
+      { name: 'UI/UX Design', icon: 'https://cdn.simpleicons.org/figma/F24E1E' },
+      { name: 'Linux / CLI', icon: 'https://cdn.simpleicons.org/linux/FCC624' },
+      { name: 'Performance', svg: '<svg class="w-5 h-5 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>' },
+      { name: 'Agile / Scrum', svg: '<svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>' },
+      { name: 'Code Review', svg: '<svg class="w-5 h-5 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>' },
+      { name: 'Problem Solving', svg: '<svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>' },
+    ],
+  },
+};
+
+const currentCategoryData = computed(() => categoryOrbits[activeTab.value] || categoryOrbits.frontend);
+
+const getOrbitStyle = (index: number, total: number = 6) => {
+  const angle = (index / total) * 2 * Math.PI - Math.PI / 2;
+  const x = (50 + 40 * Math.cos(angle)).toFixed(2);
+  const y = (50 + 40 * Math.sin(angle)).toFixed(2);
+  return { left: `${x}%`, top: `${y}%` };
+};
+
 </script>
 
 <style scoped>
@@ -416,5 +487,36 @@ const activeContent = computed(() => skillContents[activeTab.value])
 .fade-tab-leave-to {
   opacity: 0;
   transform: translateY(-6px);
+}
+
+@keyframes orbitSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes orbitCounterSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+.orbit-spin {
+  animation: orbitSpin 32s linear infinite;
+}
+
+.orbit-counter-spin {
+  animation: orbitCounterSpin 32s linear infinite;
+}
+
+.orbit-spin:hover,
+.orbit-spin:hover .orbit-counter-spin {
+  animation-play-state: paused;
 }
 </style>
