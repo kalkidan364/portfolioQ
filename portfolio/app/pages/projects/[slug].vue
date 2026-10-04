@@ -674,10 +674,10 @@ const projectsDB: Record<string, any> = {
         initials: 'KM',
       },
       {
-        name: 'Fitsum',
+        name: 'Fitsum Gashaw',
         role: 'Full Stack Developer',
         avatar: '/images/fitsum-builder.png',
-        initials: 'F',
+        initials: 'FG',
       }
     ],
     gallery: [
@@ -807,7 +807,7 @@ const projectsDB: Record<string, any> = {
   'crypto-currency': {
     title: 'Onchaintrade',
     description: 'A modern cryptocurrency trading platform with real-time market data, advanced charts, secure authentication and wallet management.',
-    heroImage: '/images/onchaintrade.png',
+    heroImage: '/images/onchain-gallery-1.png',
     meta: { category: 'Web Application', year: '2025', status: 'Completed', role: 'Full Stack Developer' },
     stats: [
       { value: '12K+', label: 'Users' },
@@ -819,17 +819,31 @@ const projectsDB: Record<string, any> = {
       { label: 'Duration', value: '3 Months' },
       { label: 'Project Type', value: 'Web Application' },
       { label: 'Client', value: 'Personal Project' },
-      { label: 'Team Size', value: '1 Developer' },
+      { label: 'Team Size', value: '2 Developers (Kalkidan & Fitsum)' },
       { label: 'Platform', value: 'Web' },
       { label: 'Responsive', value: '100%' },
       { label: 'Status', value: 'Completed' },
     ],
+    builders: [
+      {
+        name: 'Kalkidan Mengistu',
+        role: 'Full Stack Developer',
+        avatar: '/images/kalkidan-builder.png',
+        initials: 'KM',
+      },
+      {
+        name: 'Fitsum Gashaw',
+        role: 'Full Stack Developer',
+        avatar: '/images/fitsum-builder.png',
+        initials: 'FG',
+      }
+    ],
     gallery: [
-      { title: 'Desktop Preview', res: '1920 x 1080', img: '/images/onchaintrade.png' },
-      { title: 'Dashboard', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
-      { title: 'Tablet Preview', res: '768 x 1024', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
-      { title: 'Admin Panel', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
-      { title: 'Mobile Preview', res: '375 x 812', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
+      { title: 'Portfolio & Analytics Dashboard', res: '1920 x 1080', img: '/images/onchain-gallery-1.png' },
+      { title: 'Live Trading Terminal & Order Execution', res: '1920 x 1080', img: '/images/onchain-gallery-2.png' },
+      { title: 'Multi-Asset Crypto Deposit Gateway', res: '1920 x 1080', img: '/images/onchain-gallery-3.png' },
+      { title: 'User Profile & Security Management', res: '1920 x 1080', img: '/images/onchain-gallery-4.png' },
+      { title: 'Identity & KYC Document Verification', res: '1920 x 1080', img: '/images/onchain-gallery-5.png' },
     ],
     story: [
       { title: 'Research', desc: 'Market research and user needs analysis' },
@@ -840,13 +854,13 @@ const projectsDB: Record<string, any> = {
       { title: 'Deployment', desc: 'Live deployment and monitoring' },
     ],
     features: [
-      { title: 'Authentication', desc: 'Secure authentication with JWT, two-factor authentication and role-based access control for maximum security.', stats: [{ val: '100%', label: 'Secure' }, { val: '2FA', label: 'Enabled' }, { val: 'JWT', label: 'Tokens' }] },
-      { title: 'Trading Engine', desc: 'High-performance order matching engine capable of processing thousands of transactions per second with sub-millisecond latency.', stats: [{ val: '50k+', label: 'TPS' }, { val: '<1ms', label: 'Latency' }, { val: '99.9%', label: 'Uptime' }] },
-      { title: 'Wallet Management', desc: 'Multi-currency wallet system with cold storage integration, real-time balance tracking, and automated withdrawal processing.', stats: [{ val: '45+', label: 'Assets' }, { val: 'Cold', label: 'Storage' }, { val: 'Auto', label: 'Payouts' }] },
-      { title: 'Market Analytics', desc: 'Advanced charting and analytics tools with custom technical indicators, volume analysis, and historical data export.', stats: [{ val: '50+', label: 'Indicators' }, { val: 'Real', label: 'Time' }, { val: 'CSV', label: 'Export' }] },
-      { title: 'Real-time Charts', desc: 'TradingView integration for professional-grade interactive financial charts with deep historical market data.', stats: [{ val: 'HD', label: 'Resolution' }, { val: 'Live', label: 'Updates' }, { val: 'Custom', label: 'Layouts' }] },
-      { title: 'Notifications', desc: 'Customizable push, email, and SMS alert system for price movements, executed orders, and security events.', stats: [{ val: 'SMS', label: 'Alerts' }, { val: 'Push', label: 'Web/App' }, { val: 'Email', label: 'Reports' }] },
-      { title: 'Admin Dashboard', desc: 'Comprehensive back-office tools for user management, KYC verification, fee configuration, and system monitoring.', stats: [{ val: 'KYC', label: 'System' }, { val: 'RBAC', label: 'Roles' }, { val: 'Audit', label: 'Logs' }] },
+      { title: 'Authentication & Profile', desc: 'Secure profile management with verified credentials, two-factor authentication, and account security controls.', img: '/images/onchain-gallery-4.png', stats: [{ val: '100%', label: 'Secure' }, { val: '2FA', label: 'Enabled' }, { val: 'Tier 1', label: 'Verified' }] },
+      { title: 'Trading Terminal', desc: 'High-performance order matching engine with live candlestick charts, configurable trade durations, and instant buy/sell execution.', img: '/images/onchain-gallery-2.png', stats: [{ val: '50k+', label: 'TPS' }, { val: '<1ms', label: 'Latency' }, { val: '99.9%', label: 'Uptime' }] },
+      { title: 'Crypto Deposit Gateway', desc: 'Multi-chain cryptocurrency deposit interface supporting Bitcoin, Ethereum, USDT (ERC-20 & TRC-20), Solana, BNB, and more.', img: '/images/onchain-gallery-3.png', stats: [{ val: '12+', label: 'Chains' }, { val: 'Instant', label: 'Sync' }, { val: '100%', label: 'Secure' }] },
+      { title: 'Portfolio Analytics', desc: 'Real-time performance metrics with dynamic timeframes, wallet asset allocation, and live Fear & Greed sentiment index.', img: '/images/onchain-gallery-1.png', stats: [{ val: 'Live', label: 'P&L' }, { val: 'Sharpe', label: 'Ratio' }, { val: 'Real-time', label: 'Data' }] },
+      { title: 'Real-Time Charts', desc: 'TradingView integration for professional-grade interactive financial charts with deep historical market data.', img: '/images/onchain-gallery-2.png', stats: [{ val: 'HD', label: 'Resolution' }, { val: 'Live', label: 'Updates' }, { val: 'Custom', label: 'Layouts' }] },
+      { title: 'KYC Document Verification', desc: 'Three-step automated KYC review flow with government national ID verification and bank-level data encryption.', img: '/images/onchain-gallery-5.png', stats: [{ val: '3-Step', label: 'Review' }, { val: 'National', label: 'ID' }, { val: 'Encrypted', label: 'Docs' }] },
+      { title: 'Market Overview', desc: 'Comprehensive global market tracking for overall capitalization, 24h volume, and BTC dominance index.', img: '/images/onchain-gallery-1.png', stats: [{ val: '$2.45T', label: 'Market Cap' }, { val: '52.3%', label: 'BTC Dom' }, { val: '12.8K', label: 'Cryptos' }] },
     ],
     techNodes: [
       { icon: 'V', title: 'Frontend', desc: 'Vue.js + Tailwind CSS', color: '#4FC08D' },
@@ -975,17 +989,31 @@ const projectsDB: Record<string, any> = {
       { label: 'Duration', value: '3 Months' },
       { label: 'Project Type', value: 'Web Application' },
       { label: 'Client', value: 'Personal Project' },
-      { label: 'Team Size', value: '1 Developer' },
+      { label: 'Team Size', value: '2 Developers (Kalkidan & Fitsum)' },
       { label: 'Platform', value: 'Web' },
       { label: 'Responsive', value: '100%' },
       { label: 'Status', value: 'Completed' },
     ],
+    builders: [
+      {
+        name: 'Kalkidan Mengistu',
+        role: 'Full Stack Developer',
+        avatar: '/images/kalkidan-builder.png',
+        initials: 'KM',
+      },
+      {
+        name: 'Fitsum Gashaw',
+        role: 'Full Stack Developer',
+        avatar: '/images/fitsum-builder.png',
+        initials: 'FG',
+      }
+    ],
     gallery: [
-      { title: 'Desktop Preview', res: '1920 x 1080', img: '/images/onchaintrade2.png' },
-      { title: 'Dashboard', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
-      { title: 'Tablet Preview', res: '768 x 1024', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
-      { title: 'Admin Panel', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
-      { title: 'Mobile Preview', res: '375 x 812', img: 'https://images.unsplash.com/photo-1642790106117-e829e14a795f?w=600&q=80' },
+      { title: 'Portfolio & Analytics Dashboard', res: '1920 x 1080', img: '/images/onchain-gallery-1.png' },
+      { title: 'Live Trading Terminal & Order Execution', res: '1920 x 1080', img: '/images/onchain-gallery-2.png' },
+      { title: 'Multi-Asset Crypto Deposit Gateway', res: '1920 x 1080', img: '/images/onchain-gallery-3.png' },
+      { title: 'User Profile & Security Management', res: '1920 x 1080', img: '/images/onchain-gallery-4.png' },
+      { title: 'Identity & KYC Document Verification', res: '1920 x 1080', img: '/images/onchain-gallery-5.png' },
     ],
     story: [
       { title: 'Research', desc: 'Market research and user needs analysis' },
@@ -1285,6 +1313,12 @@ const defaultBuilders = [
     role: 'Full Stack Developer',
     avatar: '/images/kalkidan-builder.png',
     initials: 'KM',
+  },
+  {
+    name: 'Fitsum Gashaw',
+    role: 'Full Stack Developer',
+    avatar: '/images/fitsum-builder.png',
+    initials: 'FG',
   }
 ]
 
