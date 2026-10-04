@@ -25,6 +25,7 @@ onMounted(() => {
       touchMultiplier: 2.0,
       infinite: false,
     })
+    ;(window as any).lenis = lenis
 
     function raf(time: number) {
       lenis.raf(time)

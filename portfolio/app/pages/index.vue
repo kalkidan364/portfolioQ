@@ -1,8 +1,11 @@
 <template>
-  <div class="relative w-full overflow-hidden bg-[#111] text-white selection:bg-[#D4AF37]/30 selection:text-white">
+  <div class="relative w-full overflow-x-hidden bg-[#111] text-white selection:bg-[#D4AF37]/30 selection:text-white">
     
+    <!-- Fixed Navigation Header -->
+    <AppHeader />
+
     <!-- Hero Section -->
-    <section id="hero" class="relative w-full h-screen min-h-[600px] flex flex-col z-30">
+    <section id="hero" class="relative w-full h-screen min-h-[600px] flex flex-col pt-16 md:pt-20 z-10">
       
       <!-- Background Image from assets -->
       <div class="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 hero-bg"></div>
@@ -11,9 +14,6 @@
       <div class="absolute inset-0 bg-gradient-to-r from-[#1a1a1a] via-[#1a1a1a]/80 to-transparent z-0 w-full md:w-[65%]"></div>
       <div class="absolute inset-0 bg-gradient-to-b from-[#1a1a1a]/40 via-transparent to-[#1a1a1a] z-0"></div>
       <div class="absolute inset-0 bg-black/10 z-0"></div>
-
-      <!-- Header / Navbar -->
-      <AppHeader class="opacity-0 hero-anim" />
 
       <!-- Hero Content -->
       <div class="relative z-10 flex-1 flex flex-col justify-center container mx-auto px-6 md:px-12 w-full pb-6">
@@ -109,26 +109,24 @@
     </section>
 
     <!-- Rest of the site -->
-    <div class="relative z-40 bg-[#111]">
+    <div class="relative z-20 bg-[#111]">
       <!-- About Section -->
-      <section id="about">
+      <section id="about" class="scroll-mt-20">
         <AboutSection />
       </section>
 
       <!-- Projects Section -->
-      <section id="projects">
+      <section id="projects" class="scroll-mt-20">
         <ProjectsSection />
       </section>
 
       <!-- Skills Section -->
-      <section id="skills">
+      <section id="skills" class="scroll-mt-20">
         <SkillsSection />
       </section>
 
-
-
       <!-- Contact Section -->
-      <section id="contact">
+      <section id="contact" class="scroll-mt-20">
         <ContactSection />
       </section>
     </div>
@@ -146,7 +144,6 @@ import MagneticButton from '~/components/MagneticButton.vue'
 import AboutSection from '~/components/sections/AboutSection.vue'
 import ProjectsSection from '~/components/sections/ProjectsSection.vue'
 import SkillsSection from '~/components/sections/SkillsSection.vue'
-
 import ContactSection from '~/components/sections/ContactSection.vue'
 
 onMounted(() => {
@@ -154,7 +151,7 @@ onMounted(() => {
     // Staggered Entrance Animation
     gsap.fromTo('.hero-anim', 
       { opacity: 0, y: 20 },
-      { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out', delay: 0.2 }
+      { opacity: 1, y: 0, duration: 1, stagger: 0.1, ease: 'power3.out', delay: 0.2, clearProps: 'transform' }
     )
   }
 })

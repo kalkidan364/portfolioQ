@@ -5,7 +5,7 @@
     <main class="min-h-screen pb-20">
       
       <!-- Top Navbar (reused from global components) -->
-      <AppHeader class="absolute top-0 left-0 right-0 z-50 bg-[#050505]/80 backdrop-blur-xl border-b border-white/5" />
+      <AppHeader />
       
       <div class="px-6 md:px-12 pt-28 max-w-[1600px] mx-auto">
         
