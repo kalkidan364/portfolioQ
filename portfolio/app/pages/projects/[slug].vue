@@ -991,7 +991,7 @@ const projectsDB: Record<string, any> = {
   'onchaintrade2': {
     title: 'Onchaintrade2',
     description: 'The most advanced cryptocurrency terminal with institutional-grade execution and unmatched analytics.',
-    heroImage: '/images/onchaintrade2.png',
+    heroImage: '/images/onchain2-gallery-1.png',
     meta: { category: 'Web Application', year: '2025', status: 'Completed', role: 'Full Stack Developer' },
     stats: [
       { value: '$2.8T', label: 'Volume' },
@@ -1023,11 +1023,11 @@ const projectsDB: Record<string, any> = {
       }
     ],
     gallery: [
-      { title: 'Portfolio & Analytics Dashboard', res: '1920 x 1080', img: '/images/onchain-gallery-1.png' },
-      { title: 'Live Trading Terminal & Order Execution', res: '1920 x 1080', img: '/images/onchain-gallery-2.png' },
-      { title: 'Multi-Asset Crypto Deposit Gateway', res: '1920 x 1080', img: '/images/onchain-gallery-3.png' },
-      { title: 'User Profile & Security Management', res: '1920 x 1080', img: '/images/onchain-gallery-4.png' },
-      { title: 'Identity & KYC Document Verification', res: '1920 x 1080', img: '/images/onchain-gallery-5.png' },
+      { title: 'Platform Landing & Terminal Hero', res: '1920 x 1080', img: '/images/onchain2-gallery-1.png' },
+      { title: 'Advanced Trading Terminal & Candlestick Charts', res: '1920 x 1080', img: '/images/onchain2-gallery-2.png' },
+      { title: 'Crypto Deposit Gateway & Live Support Chat', res: '1920 x 1080', img: '/images/onchain2-gallery-3.png' },
+      { title: 'User Profile & Account Preferences', res: '1920 x 1080', img: '/images/onchain2-gallery-4.png' },
+      { title: 'Professional 24/7 Email Support Center', res: '1920 x 1080', img: '/images/onchain2-gallery-5.png' },
     ],
     story: [
       { title: 'Research', desc: 'Market research and user needs analysis' },
@@ -1038,8 +1038,11 @@ const projectsDB: Record<string, any> = {
       { title: 'Deployment', desc: 'Live deployment and monitoring' },
     ],
     features: [
-      { title: 'Authentication', desc: 'Secure authentication with JWT, two-factor authentication and role-based access control for maximum security.', stats: [{ val: '100%', label: 'Secure' }, { val: '2FA', label: 'Enabled' }, { val: 'JWT', label: 'Tokens' }] },
-      { title: 'Trading Engine', desc: 'High-performance order matching engine capable of processing thousands of transactions per second with sub-millisecond latency.', stats: [{ val: '50k+', label: 'TPS' }, { val: '<1ms', label: 'Latency' }, { val: '99.9%', label: 'Uptime' }] },
+      { title: 'Next-Gen Terminal Hero', desc: 'Futuristic landing page interface presenting institutional-grade execution, live ticker bar, and seamless web app launch.', img: '/images/onchain2-gallery-1.png', stats: [{ val: 'Real-time', label: 'Feeds' }, { val: 'Sub-ms', label: 'Latency' }, { val: 'Institutional', label: 'Grade' }] },
+      { title: 'Advanced Trading Engine', desc: 'Precision trading terminal with live candlestick charting (BTC/USDT), indicators, customizable time intervals, and quick buy/sell.', img: '/images/onchain2-gallery-2.png', stats: [{ val: '50k+', label: 'TPS' }, { val: '<1ms', label: 'Latency' }, { val: '99.9%', label: 'Uptime' }] },
+      { title: 'Multi-Network Deposits & Chat', desc: 'Comprehensive crypto deposit portal across Tron, Ethereum, Solana, and BSC with an integrated live support chat widget.', img: '/images/onchain2-gallery-3.png', stats: [{ val: '6+', label: 'Chains' }, { val: 'Instant', label: 'Sync' }, { val: 'Live', label: 'Support' }] },
+      { title: 'Profile Settings & Security', desc: 'Customizable account preferences, verified identity information, and direct password/email configuration with neon accents.', img: '/images/onchain2-gallery-4.png', stats: [{ val: '100%', label: 'Secure' }, { val: 'Active', label: 'Status' }, { val: 'Direct', label: 'Sync' }] },
+      { title: 'Professional Support Center', desc: 'Dedicated 24/7 email ticketing helpdesk with 2-4h response time, 99% resolution rate, and categorized inquiry forms.', img: '/images/onchain2-gallery-5.png', stats: [{ val: '2-4h', label: 'Response' }, { val: '99%', label: 'Resolution' }, { val: '24/7', label: 'Available' }] },
     ],
     techNodes: [
       { icon: 'V', title: 'Frontend', desc: 'Vue.js + Tailwind CSS', color: '#4FC08D' },
