@@ -899,7 +899,7 @@ const projectsDB: Record<string, any> = {
   'apollo-logistics': {
     title: 'Apollo Logistics Website',
     description: 'A professional logistics and HR consultancy website built for Apollo Logistics — unifying customs clearing, freight operations, and human capital solutions for Ethiopian enterprise clients.',
-    heroImage: '/images/apollo.jpg',
+    heroImage: '/images/apollo-gallery-1.png',
     meta: { category: 'Website', year: '2024', status: 'Completed', role: 'Full Stack Developer' },
     stats: [
       { value: '5K+', label: 'Visitors/Mo' },
@@ -911,17 +911,31 @@ const projectsDB: Record<string, any> = {
       { label: 'Duration', value: '2 Months' },
       { label: 'Project Type', value: 'Business Website' },
       { label: 'Client', value: 'Apollo Logistics' },
-      { label: 'Team Size', value: '1 Developer' },
+      { label: 'Team Size', value: '2 Developers (Kalkidan & Fitsum)' },
       { label: 'Platform', value: 'Web' },
       { label: 'Responsive', value: '100%' },
       { label: 'Status', value: 'Completed' },
     ],
+    builders: [
+      {
+        name: 'Kalkidan Mengistu',
+        role: 'Full Stack Developer',
+        avatar: '/images/kalkidan-builder.png',
+        initials: 'KM',
+      },
+      {
+        name: 'Fitsum Gashaw',
+        role: 'Full Stack Developer',
+        avatar: '/images/fitsum-builder.png',
+        initials: 'FG',
+      }
+    ],
     gallery: [
-      { title: 'Homepage Hero', res: '1920 x 1080', img: '/images/apollo.jpg' },
-      { title: 'Services Page', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1586528116311-ad8ed7c83a56?w=600&q=80' },
-      { title: 'About Us', res: '1440 x 900', img: 'https://images.unsplash.com/photo-1578575437130-527eed3abbec?w=600&q=80' },
-      { title: 'Job Board', res: '1920 x 1080', img: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80' },
-      { title: 'Contact Page', res: '375 x 812', img: 'https://images.unsplash.com/photo-1521791136064-7986c2920216?w=600&q=80' },
+      { title: 'Hero & Enterprise Brand Portal', res: '1920 x 1080', img: '/images/apollo-gallery-1.png' },
+      { title: 'Execution Workflow & Value Pillars', res: '1920 x 1080', img: '/images/apollo-gallery-2.png' },
+      { title: 'Logistics & HR Service Portfolio', res: '1920 x 1080', img: '/images/apollo-gallery-3.png' },
+      { title: 'Company Journey & Track Record', res: '1920 x 1080', img: '/images/apollo-gallery-4.png' },
+      { title: 'Headquarters Location & Interactive Map', res: '1920 x 1080', img: '/images/apollo-gallery-5.png' },
     ],
     story: [
       { title: 'Client Meeting', desc: 'Understanding Apollo Logistics business model and target audience' },
@@ -932,12 +946,12 @@ const projectsDB: Record<string, any> = {
       { title: 'Launch & Handoff', desc: 'Deployed to production and handed over to the client' },
     ],
     features: [
-      { title: 'Service Showcase', desc: 'Dynamic service pages highlighting customs clearing, freight forwarding, and HR consultancy with rich media and detailed descriptions.', stats: [{ val: '6+', label: 'Services' }, { val: 'Rich', label: 'Media' }, { val: 'Dynamic', label: 'Content' }] },
-      { title: 'Job Board', desc: 'Fully functional job posting and application system allowing HR to post vacancies and candidates to apply directly through the website.', stats: [{ val: 'CRUD', label: 'Jobs' }, { val: 'Apply', label: 'Online' }, { val: 'Filter', label: 'Search' }] },
-      { title: 'Contact System', desc: 'Integrated contact form with email notifications, inquiry management dashboard, and automatic response system for client communication.', stats: [{ val: 'Email', label: 'Alerts' }, { val: 'Auto', label: 'Reply' }, { val: 'SMTP', label: 'Setup' }] },
-      { title: 'Admin Panel', desc: 'Back-office dashboard for managing job listings, service content, contact inquiries, and company information dynamically.', stats: [{ val: 'Full', label: 'CRUD' }, { val: 'Auth', label: 'Roles' }, { val: 'Media', label: 'Upload' }] },
-      { title: 'SEO Optimization', desc: 'Server-side rendering with meta tags, Open Graph, structured data, and sitemap generation for maximum search engine visibility.', stats: [{ val: '100', label: 'SEO Score' }, { val: 'SSR', label: 'Enabled' }, { val: 'OG', label: 'Tags' }] },
-      { title: 'Responsive Design', desc: 'Pixel-perfect responsive layout optimized for all screen sizes from mobile to ultra-wide desktop displays.', stats: [{ val: '100%', label: 'Mobile' }, { val: 'Fluid', label: 'Grid' }, { val: 'Touch', label: 'Ready' }] },
+      { title: 'Service Showcase', desc: 'Dynamic service lines highlighting customs clearance, freight forwarding, human resources, and business advisory.', img: '/images/apollo-gallery-3.png', stats: [{ val: '6+', label: 'Services' }, { val: '500+', label: 'Shipments' }, { val: '2', label: 'Divisions' }] },
+      { title: 'Execution Workflow', desc: 'Streamlined 4-step process from initial discovery call and custom proposal to deployment and continuous support.', img: '/images/apollo-gallery-2.png', stats: [{ val: '4-Step', label: 'Flow' }, { val: 'Speed', label: 'To Value' }, { val: 'Unified', label: 'Process' }] },
+      { title: 'Enterprise Journey', desc: 'Track record showing growth from founding insight in 2024 to serving 40+ enterprise clients across East Africa.', img: '/images/apollo-gallery-4.png', stats: [{ val: '98%', label: 'Compliance' }, { val: '200+', label: 'Placed' }, { val: '1', label: 'Partner' }] },
+      { title: 'Brand Portal & Hero', desc: 'High-impact brand identity integrating cargo logistics and human capital solutions for modern Ethiopian enterprises.', img: '/images/apollo-gallery-1.png', stats: [{ val: 'Addis', label: 'HQ' }, { val: 'Est.', label: '2024' }, { val: 'Modern', label: 'UI' }] },
+      { title: 'Interactive HQ Locator', desc: 'Dedicated contact and location center with interactive transit directions to Apollo Logistics HQ in Addis Ababa.', img: '/images/apollo-gallery-5.png', stats: [{ val: 'Bole', label: 'Addis' }, { val: 'Open', label: '6:00 PM' }, { val: 'Book', label: 'Visits' }] },
+      { title: 'Responsive Design', desc: 'Pixel-perfect responsive layout optimized for all screen sizes from mobile devices to ultra-wide desktop displays.', img: '/images/apollo-gallery-1.png', stats: [{ val: '100%', label: 'Mobile' }, { val: 'Fluid', label: 'Grid' }, { val: 'Touch', label: 'Ready' }] },
     ],
     techNodes: [
       { icon: 'V', title: 'Frontend', desc: 'Vue.js 3 + Tailwind CSS', color: '#4FC08D' },
