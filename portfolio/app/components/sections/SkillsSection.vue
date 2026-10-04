@@ -50,8 +50,8 @@
                 <div class="w-10 h-10 mb-3 flex items-center justify-center text-[#D4AF37]">
                   <svg class="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
-                <div class="text-2xl sm:text-3xl font-bold text-[#D4AF37] mb-1">3+</div>
-                <div class="text-[10px] sm:text-xs text-gray-400 font-medium tracking-wide">Years of<br/>Experience</div>
+                <div class="text-2xl sm:text-3xl font-bold text-[#D4AF37] mb-1">4th</div>
+                <div class="text-[10px] sm:text-xs text-gray-400 font-medium tracking-wide">Year of<br/>Experience</div>
               </div>
               <!-- Stat 4 -->
               <div class="flex flex-col items-center justify-center text-center p-3">

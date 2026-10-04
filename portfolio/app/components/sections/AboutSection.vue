@@ -25,7 +25,7 @@
         
         <div class="flex-1 md:border-l md:border-[#D4AF37]/30 md:pl-8 flex items-center h-full pt-2 md:pt-0">
           <p class="text-gray-400 text-sm leading-relaxed max-w-lg">
-            I am a 3rd Year Software Engineering student passionate about building modern web applications and solving real-world problems through innovative software development.
+            I am a 4th Year Software Engineering student passionate about building modern web applications and solving real-world problems through innovative software development.
           </p>
         </div>
       </div>
@@ -41,7 +41,7 @@
           </div>
           <div>
             <h3 class="text-white font-semibold text-base mb-1">Education</h3>
-            <p class="text-gray-400 text-xs">3rd Year Software<br/>Engineering Student</p>
+            <p class="text-gray-400 text-xs">4th Year Software<br/>Engineering Student</p>
           </div>
         </div>
 
@@ -130,8 +130,8 @@
             </div>
             <div class="flex flex-col items-center text-center">
               <svg class="w-5 h-5 text-[#D4AF37] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-              <span class="text-xl font-bold text-[#D4AF37] mb-0.5">3+</span>
-              <span class="text-[9px] text-gray-400 font-medium">Years Learning</span>
+              <span class="text-xl font-bold text-[#D4AF37] mb-0.5">4th</span>
+              <span class="text-[9px] text-gray-400 font-medium">Year Learning</span>
             </div>
             <div class="flex flex-col items-center text-center">
               <svg class="w-5 h-5 text-[#D4AF37] mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
